@@ -7,7 +7,7 @@ Note: if you have never set up Git credentials before:
 - You will need a [GitHub Token](https://docs.github.com/en/enterprise-server@3.4/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) as your password 
 to modify the repository (using password became deprecated in August of last year).
 - If credentials are not stored on your machine, you will be prompted to enter the credentials every time there is a `push` (which is rather inconvenient). Instead:
-  - You can [store the credentials locally](https://git-scm.com/docs/git-credential-store) (also read [this post](https://stackoverflow.com/questions/28104581/how-secure-is-storing-password-with-git/28104587#28104587). In general, be sure not to use `git config credential.helper store` as the token will be in plain text which is not secure at all)
+  - You can [store the credentials locally](https://git-scm.com/docs/git-credential-store) (also read [this post](https://stackoverflow.com/questions/28104581/how-secure-is-storing-password-with-git/28104587#28104587). In general, be sure **NOT** to use `git config credential.helper store` as the token will be in plain text which is not secure at all)
   - Or use some sort of [caching](https://docs.github.com/en/get-started/getting-started-with-git/caching-your-github-credentials-in-git).
 - OR go straight to the SSH method (which may be a headache for Windows users. I never figured out how to use PuTTY or any SSH terminal on Windows before I switched to macOS...)
   - Anyways, the instructions are [here](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)
