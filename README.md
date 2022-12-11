@@ -1,5 +1,23 @@
 # Grocery Smart
 
+## Updates:
+* main branch, 12/11: added `data` folder to store all of our images, store, and inventory information to act as a backend.
+  * `cart.json` is used to store what items are in the cart at the moment. It is a JSON array.
+  * `inventory.json` is used to store grocery store inventory information. Every store has an `items` key which is the
+store's inventory.
+  * See both files for details, they are pretty straight forward. 
+  * Notes:
+    * The `pic-dir` is the item picture file path. The pictures will be stored in `data/images`. The reason there is `../../` in
+front is because we would be using these file paths within the components in `src/components`.
+    * Also, the `distance` key in `inventory.json` is just for display since we are just developing static pages at the moment. 
+
+## Git operations for development
+* **Always** work on a separate branch first. Make sure everything works, and then merge to main. (Ideally we would do this step during group meetings in case there are merge conflicts.)
+* To create a new branch and switch to it, use `git checkout -b <branch-name>`
+  * The new branch will not immediately appear on the GitHub repository. You can attempt to do a `push` and the terminal 
+will tell you what to do in order to establish a connection to `origin/<branch-name>`.
+* To pull changes from `main` to your development branch, switch to the development branch using `git checkout <branch-name>` and `git pull origin master`
+
 ## Git Basics
 In your terminal, `cd` into a desired folder and do `git clone https://github.com/shiy9/grocerysmart.git` to copy the entire project.
 
@@ -12,7 +30,6 @@ to modify the repository (using password became deprecated in August of last yea
 - OR go straight to the SSH method (which may be a headache for Windows users. I never figured out how to use PuTTY or any SSH terminal on Windows before I switched to macOS...)
   - Anyways, the instructions are [here](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)
 
-(Some project development git operations may be added here in the future. I can also go over them in a future team meeting.)
 
 ## How to start and run the project
 
