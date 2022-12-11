@@ -16,7 +16,14 @@ front is because we would be using these file paths within the components in `sr
   * To create a new branch and switch to it, use `git checkout -b <branch-name>`
     * The new branch will not immediately appear on the GitHub repository. You can attempt to do a `push` and the terminal 
   will tell you what to do in order to establish a connection to `origin/<branch-name>`.
-* To pull changes from `main` to your development branch, switch to the development branch using `git checkout <branch-name>` and `git pull origin master`
+* To pull changes from `main` to your development branch, follow the commands below:
+```
+git checkout main
+git pull
+git checkout <your-branch>
+git merge main
+git push
+```
 * When adding-committing-pushing changes to development branch or the main branch, it is always a good idea to do a `git status` first to check which files
 may be added/committed before doing `git add *`. If certain hidden files are generated from certain packages and does not need to be pushed to the repository, add
 them to `.gitignore` following the [Glob pattern](https://en.wikipedia.org/wiki/Glob_(programming)).
