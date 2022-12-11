@@ -6,6 +6,7 @@ import {Header} from "./components/header";
 import {Home} from "./components/home"
 import {SignIn} from "./components/signin";
 import {SignUp} from "./components/signup";
+import {SearchResults} from "./components/searchresults";
 
 const GridBase = styled.div`
   display: grid;
@@ -21,7 +22,7 @@ const GridBase = styled.div`
     grid-template-rows: auto auto auto;
     grid-template-areas:
       "hd hd hd hd hd"
-      "sb sb main main main"
+      "main main main main main"
       "ft ft ft ft ft";
   }
 `;
@@ -35,11 +36,16 @@ function App() {
                 <Route exact path="/" component={Home}/>
                 <Route
                     path="/signin"
-                    render={() => <SignIn />}
+                    render={() => <SignIn/>}
                 />
                 <Route
                     path="/signup"
-                    render={() => <SignUp />}
+                    render={() => <SignUp/>}
+                />
+                <Route
+                    // path="/search/:item"
+                    path="/search"
+                    render={() => <SearchResults/>}
                 />
 
             </GridBase>
