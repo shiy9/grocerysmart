@@ -1,0 +1,14 @@
+[
+  {
+    "item-name": "Bananas (Dozen)",
+    "quantity": 1,
+    "price": 3.99,
+    "pic-dir": "../data/images/banana-1.jpg"
+  },
+  {
+    "item-name": "Honeycrisp Apples",
+    "quantity": 1,
+    "price": 1.99,
+    "pic-dir": "../data/images/honeycrisp-1.jpeg"
+  }
+]

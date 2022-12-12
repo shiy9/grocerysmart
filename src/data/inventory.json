@@ -1,0 +1,88 @@
+{
+  "0000": {
+    "store-name": "Trader Joe's",
+    "location": "123 street",
+    "distance": "1.2 miles",
+    "items": [
+      {
+        "item-name": "Bananas (Dozen)",
+        "unit-price": 3.99,
+        "unit": "unit",
+        "tot-price": 3.99,
+        "num-sold": 800,
+        "pic-dir": "banana-1.jpg",
+        "storeid": "0000"
+      },
+      {
+        "item-name": "Honeycrisp Apples",
+        "unit-price": 1.99,
+        "unit": "unit",
+        "tot-price": 1.99,
+        "num-sold": 273,
+        "pic-dir": "honeycrisp-1.jpeg",
+        "storeid": "0000"
+      },
+      {
+        "item-name": "Boneless and Skinless Chicken Thighs 1.5 lbs",
+        "unit-price": 3.99,
+        "unit": "lb",
+        "tot-price": 5.99,
+        "num-sold": 192,
+        "pic-dir": "chicken-thigh.png",
+        "storeid": "0000"
+      },
+      {
+        "item-name": "Organic Boneless Skinless Chicken Breasts, 2lbs",
+        "unit-price": 6.99,
+        "unit": "12oz",
+        "tot-price": 13.98,
+        "num-sold": 473,
+        "pic-dir": "chicken-breast.png",
+        "storeid": "0000"
+      }
+    ]
+  },
+  "0001": {
+    "store-name": "Whole Foods",
+    "location": "445 street",
+    "distance": "2.2 miles",
+    "items": [
+      {
+        "item-name": "Bananas (Dozen)",
+        "unit-price": 3.99,
+        "unit": "unit",
+        "tot-price": 3.99,
+        "num-sold": 800,
+        "pic-dir": "banana-1.jpg",
+        "storeid": "0001"
+      },
+      {
+        "item-name": "Honeycrisp Apples",
+        "unit-price": 1.99,
+        "unit": "unit",
+        "tot-price": 1.99,
+        "num-sold": 273,
+        "pic-dir": "honeycrisp-1.jpeg",
+        "storeid": "0001"
+      },
+      {
+        "item-name": "Chicken Mid Join Wing, Frozen, 2 lbs",
+        "unit-price": 6.71,
+        "unit": "lb",
+        "tot-price": 13.49,
+        "num-sold": 182,
+        "pic-dir": "chicken-mid-join-wing.png",
+        "storeid": "0001"
+      },
+      {
+        "item-name": "Organic Chicken Nuggets",
+        "unit-price": 3.99,
+        "unit": "lb",
+        "tot-price": 5.99,
+        "num-sold": 291,
+        "pic-dir": "chicken-nuggets.jpg",
+        "storeid": "0001"
+      }
+    ]
+  }
+}

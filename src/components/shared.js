@@ -8,7 +8,8 @@ import styled from "styled-components";
 // Example of prop-type usage, could be helpful later as well
 export const ErrorMessage = ({ msg = "", hide = false }) => {
     return (
-        <ErrorBase style={{ display: hide ? "none" : "inherit" }}>{msg}</ErrorBase>
+        <div></div>
+        // <ErrorBase style={{ display: hide ? "none" : "inherit" }}>{msg}</ErrorBase>
     );
 };
 

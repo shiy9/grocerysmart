@@ -6,8 +6,6 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 
-const fontColor = "#c4a1a1";
-
 const HeaderLeftBase = styled.div`
   flex-grow: 1;
   font-style: italic;
@@ -15,8 +13,10 @@ const HeaderLeftBase = styled.div`
   & > a {
     text-decoration: none;
     & > h2 {
-      color: ${fontColor};
+      color: #E2C218;
       margin: 0.75em 0 0.75em 0.5em;
+      font-weight: 400;
+      font-style: normal;
     }
   }
 `;
@@ -46,7 +46,7 @@ const HeaderRightBase = styled.div`
   padding-right: 0.5em;
 
   & > a {
-    color: ${fontColor};
+    color: #c4a1a1;
     padding-right: 0.5em;
   }
 `;

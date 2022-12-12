@@ -3,13 +3,18 @@
 ## Updates:
 * main branch, 12/11: added `data` folder to store all of our images, store, and inventory information to act as a backend.
   * `cart.json` is used to store what items are in the cart at the moment. It is a JSON array.
-  * `inventory.json` is used to store grocery store inventory information. Every store has an `items` key which is the
+  * `inventory.json` is used to store grocery store inventory information. The outer keys are store ids. Every store has an `items` array which is the
 store's inventory.
-  * See both files for details, they are pretty straight forward. 
+  * `selected-stores.json` is used to store the list of store ids that have been selected by the user. It is a JSON array.
+  * See all files for details, they are pretty straight forward. 
   * Notes:
-    * The `pic-dir` is the item picture file path. The pictures will be stored in `data/images`. The reason there is `../../` in
-front is because we would be using these file paths within the components in `src/components`.
-    * Also, the `distance` key in `inventory.json` is just for display since we are just developing static pages at the moment. 
+    * The `pic-dir` is the item picture file name (**NOT THE ENTIRE PATH**). The pictures will be stored in `data/images`. The reason we are not storing
+the entire path is because we need to use `require()` for the image `src` with Webpack. Webpack runs in build-time, and it cannot only accept a variable as an input.
+So we can use a little hack like `require("../data/images" + <variable>")` to get past this.
+    * The `distance` key in `inventory.json` is just for display since we are just developing static pages at the moment. 
+    * Each item also has a `storeid`--the store that has this item. This is kinda redundant, but I found out that I needed this info stored in
+the `items` array after I was almost done coding the search result page and would have to rewrite the JSON processing part of the program
+if the structure had to change. I will settle on this for now, but we can definitely change it if we have time.
 
 ## Git operations for development
 * **Always** work on a separate branch first. Make sure everything works, and then merge to main. (Ideally we would do this step during group meetings in case there are merge conflicts.)
