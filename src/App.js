@@ -7,6 +7,7 @@ import {Home} from "./components/home"
 import {SignIn} from "./components/signin";
 import {SignUp} from "./components/signup";
 import {SearchResults} from "./components/searchresults";
+import {Welcome} from "./components/welcome";
 
 const GridBase = styled.div`
   display: grid;
@@ -37,6 +38,10 @@ function App() {
                 <Route
                     path="/signin"
                     render={() => <SignIn/>}
+                />
+                <Route
+                    path="/welcome"
+                    render={() => <Welcome/>}
                 />
                 <Route
                     path="/signup"
