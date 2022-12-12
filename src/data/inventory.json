@@ -11,7 +11,10 @@
         "tot-price": 3.99,
         "num-sold": 800,
         "pic-dir": "banana-1.jpg",
-        "storeid": "0000"
+        "storeid": "0000",
+        "sub-category": "fruit",
+        "main-category": "produce",
+        "type": "g"
       },
       {
         "item-name": "Honeycrisp Apples",
@@ -20,7 +23,10 @@
         "tot-price": 1.99,
         "num-sold": 273,
         "pic-dir": "honeycrisp-1.jpeg",
-        "storeid": "0000"
+        "storeid": "0000",
+        "sub-category": "fruit",
+        "main-category": "produce",
+        "type": "g"
       },
       {
         "item-name": "Boneless and Skinless Chicken Thighs 1.5 lbs",
@@ -29,7 +35,8 @@
         "tot-price": 5.99,
         "num-sold": 192,
         "pic-dir": "chicken-thigh.png",
-        "storeid": "0000"
+        "storeid": "0000",
+        "type": "s"
       },
       {
         "item-name": "Organic Boneless Skinless Chicken Breasts, 2lbs",
