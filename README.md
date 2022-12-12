@@ -1,7 +1,7 @@
 # Grocery Smart
 
 ## Updates:
-* main branch, 12/11: added `data` folder to store all of our images, store, and inventory information to act as a backend.
+* main branch, 12/11: added `src/data` folder to store all of our images, store, and inventory information to act as a backend.
   * `cart.json` is used to store what items are in the cart at the moment. It is a JSON array.
   * `inventory.json` is used to store grocery store inventory information. The outer keys are store ids. Every store has an `items` array which is the
 store's inventory.
