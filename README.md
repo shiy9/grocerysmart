@@ -1,10 +1,15 @@
 # Grocery Smart
 
 ## Updates:
+* main branch, 12/16:
+  * Added `src/data/schemas` containing JSON schema files to enforce the JSON data structure. You can apply the schema in your preferred IDE
+, and when adding data to the JSON files, you should see a warning when some of the fields do not meet the requirements.
+  * Note that in `inventory-schema.json` the sub-category `enum` may not be complete since the database is not very populated at the moment. More subcategories may be added in the future
+  * `inventory.json` is now simply a JSON array storing store objects, which will make traversal easier in JavaScript. (We can use `forEach` instead of a for loop now)
 * main branch, 12/11: added `src/data` folder to store all of our images, store, and inventory information to act as a backend.
   * `cart.json` is used to store what items are in the cart at the moment. It is a JSON array.
-  * `inventory.json` is used to store grocery store inventory information. The outer keys are store ids. Every store has an `items` array which is the
-store's inventory.
+  * `inventory.json` is used to store grocery store inventory information. ~~The outer keys are store ids. Every store has an `items` array which is the
+store's inventory.~~ (See above)
   * `selected-stores.json` is used to store the list of store ids that have been selected by the user. It is a JSON array.
   * See all files for details, they are pretty straight forward. 
   * Notes:

@@ -220,7 +220,8 @@ const OneItem = ({itemInfo}) => {
             <ItemDetails>
                 <div>{itemInfo["num-sold"]} sold</div>
                 <div>Free Delivery Thu, Dec 1</div>
-                <div>Available at {invData[itemInfo["storeid"]]["store-name"]}, {invData[itemInfo["storeid"]]["location"]}</div>
+                <div>Available
+                    at {invData[itemInfo["storeid"]]["store-name"]}, {invData[itemInfo["storeid"]]["location"]}</div>
             </ItemDetails>
             <Stack
                 direction="row"
@@ -265,13 +266,13 @@ export const SearchResults = () => {
         let tmp2 = [];
         const invData = JSON.parse(JSON.stringify(inventory));
         const storeData = JSON.parse(JSON.stringify(selStores));
-        for (let id in invData) {
-            if (storeData.includes(id)) {
-                tmp1 = tmp1.concat(invData[id]["items"].filter(item => item["item-name"].toUpperCase().includes(searchItem.toUpperCase())));
+        invData.forEach((store) => {
+            if (storeData.includes(store["store-id"])) {
+                tmp1 = tmp1.concat(store["items"].filter(item => item["item-name"].toUpperCase().includes(searchItem.toUpperCase())));
             } else {
-                tmp2 = tmp2.concat(invData[id]["items"].filter(item => item["item-name"].toUpperCase().includes(searchItem.toUpperCase())));
+                tmp2 = tmp2.concat(store["items"].filter(item => item["item-name"].toUpperCase().includes(searchItem.toUpperCase())));
             }
-        }
+        })
         setSearchKey(searchItem);
         setAvail(tmp1);
         setUnavail(tmp2);
