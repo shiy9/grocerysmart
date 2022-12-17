@@ -98,42 +98,14 @@ const FirstRow = styled.div`
   display: flex;
   width: 100%;
   margin-top: 15px;
-  align-items: center;
-`;
-
-const SearchResDisplay = styled.div`
-  flex: 1;
-  font-weight: 700;
-  font-size: 19px;
-  color: #cf1010;
-  padding-left: 35px;
-`;
-
-const SortSelectorContainer = styled.div`
-  flex: 1;
-  text-align: right;
-  padding-right: 35px;
-`;
-
-const SortSelector = styled.select`
-  font-size: 15px;
-  font-weight: 700;
-`;
-
-const SecTitle = styled.div`
-  width: auto;
-  margin-top: 45px;
-  align-items: flex-start;
-`;
-
-const AvailItemsText = styled.b`
-  margin-left: 15px;
-  border: 2px solid;
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 29px;
-  color: #505050;
-  padding: 3px 10px 3px 10px;
+  text-align: center;
+  align-content: center;
+  justify-content: center;
+  font-family: "Lobster Two";
+  font-style: italic;
+  font-weight: 400;
+  font-size: 60px;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 `;
 
 const ItemsContainer = styled.div`
@@ -347,14 +319,14 @@ const OneItem = ({ itemInfo }) => {
   );
 };
 
-export const SearchResults = () => {
-  const [searchKey, setSearchKey] = useState("");
+export const MainCategory = () => {
+  const [category, setCategory] = useState("");
   const [avail, setAvail] = useState([]);
   const [unavail, setUnavail] = useState([]);
   const [hideSideBar, setHideSideBar] = useState(false);
 
   useEffect(() => {
-    const searchItem = window.location.href.split("/").pop();
+    const category = window.location.href.split("/").pop();
     let tmp1 = [];
     let tmp2 = [];
     const invData = JSON.parse(JSON.stringify(inventory));
@@ -362,19 +334,21 @@ export const SearchResults = () => {
     invData.forEach((store) => {
       if (storeData.includes(store["store-id"])) {
         tmp1 = tmp1.concat(
-          store["items"].filter((item) =>
-            item["item-name"].toUpperCase().includes(searchItem.toUpperCase())
+          store["items"].filter(
+            (item) =>
+              item["main-category"].toUpperCase() === category.toUpperCase()
           )
         );
       } else {
         tmp2 = tmp2.concat(
-          store["items"].filter((item) =>
-            item["item-name"].toUpperCase().includes(searchItem.toUpperCase())
+          store["items"].filter(
+            (item) =>
+              item["main-category"].toUpperCase() === category.toUpperCase()
           )
         );
       }
     });
-    setSearchKey(searchItem);
+    setCategory(category);
     setAvail(tmp1);
     setUnavail(tmp2);
   }, []);
@@ -388,6 +362,19 @@ export const SearchResults = () => {
     "Personal Care",
   ];
   const subCat = ["Beef", "Chicken", "Mutton", "Pork", "Fish", "Seafood"];
+
+  const mainCatDict = {
+    produce: "Produce",
+    "meat-seafood": "Meat and Seafood",
+    "dairy-eggs": "Dairy and Eggs",
+    beverage: "Beverage",
+    household: "Household",
+    "personal-care": "Personal Care",
+  };
+
+  // const subCatDict = {
+  //   "meat-seafood": ["Beef", "Chicken", "Mutton", "Pork", "Fish", "Seafood"],
+  // };
 
   return (
     <PageBase>
@@ -462,34 +449,13 @@ export const SearchResults = () => {
 
         <MainContent>
           <FirstRow>
-            <SearchResDisplay>
-              Search Results for "{searchKey}"
-            </SearchResDisplay>
-            <SortSelectorContainer>
-              <SortSelector>
-                <option value={"best-seller"}>Sorted by (Best Sellers)</option>
-                <option value={"price-low-high"}>
-                  Sorted by (Price Low-to-High)
-                </option>
-                <option value={"price-high-low"}>
-                  Sorted by (Price High-to-Low)
-                </option>
-              </SortSelector>
-            </SortSelectorContainer>
+            <div>{mainCatDict[category]}</div>
           </FirstRow>
-          <SecTitle>
-            <AvailItemsText>Items Available in Selected Stores</AvailItemsText>
-          </SecTitle>
           <ItemsContainer>
             {avail.map((itemInfo, idx) => (
               <OneItem itemInfo={itemInfo} key={idx} />
             ))}
           </ItemsContainer>
-          <SecTitle>
-            <AvailItemsText>
-              Items Not Available in Selected Stores
-            </AvailItemsText>
-          </SecTitle>
           <ItemsContainer>
             {unavail.map((itemInfo, idx) => (
               <OneItem itemInfo={itemInfo} key={idx} />
