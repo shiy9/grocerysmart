@@ -7,6 +7,7 @@
     "delivery-fee": 4.99,
     "items": [
       {
+        "item-id": 1,
         "item-name": "Bananas (Dozen)",
         "unit-price": 3.99,
         "unit": "unit",
@@ -19,6 +20,7 @@
         "type": "g"
       },
       {
+        "item-id": 2,
         "item-name": "Honeycrisp Apples",
         "unit-price": 1.99,
         "unit": "unit",
@@ -31,6 +33,7 @@
         "type": "g"
       },
       {
+        "item-id": 3,
         "item-name": "Boneless and Skinless Chicken Thighs 1.5 lbs",
         "unit-price": 3.99,
         "unit": "lb",
@@ -43,6 +46,7 @@
         "type": "s"
       },
       {
+        "item-id": 4,
         "item-name": "Organic Boneless Skinless Chicken Breasts, 2lbs",
         "unit-price": 6.99,
         "unit": "12oz",
@@ -64,6 +68,7 @@
     "delivery-fee": 3.99,
     "items": [
       {
+        "item-id": 5,
         "item-name": "Bananas (Dozen)",
         "unit-price": 3.99,
         "unit": "unit",
@@ -76,6 +81,7 @@
         "type": "g"
       },
       {
+        "item-id": 6,
         "item-name": "Honeycrisp Apples",
         "unit-price": 1.99,
         "unit": "unit",
@@ -88,6 +94,7 @@
         "type": "g"
       },
       {
+        "item-id": 7,
         "item-name": "Chicken Mid Join Wing, Frozen, 2 lbs",
         "unit-price": 6.71,
         "unit": "lb",
@@ -100,7 +107,8 @@
         "type": "s"
       },
       {
-        "item-name": "Organic Chicken Nuggets",
+        "item-id": 8,
+        "item-name": "Organic Chicken Nuggets, Frozen",
         "unit-price": 3.99,
         "unit": "lb",
         "tot-price": 5.99,

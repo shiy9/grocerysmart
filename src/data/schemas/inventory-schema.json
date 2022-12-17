@@ -23,6 +23,9 @@
         "items": {
           "type": "object",
           "properties": {
+            "item-id": {
+              "type": "integer"
+            },
             "item-name": {
               "type": "string"
             },
@@ -76,6 +79,7 @@
             }
           },
           "required": [
+            "item-id",
             "item-name",
             "unit",
             "unit-price",
@@ -87,7 +91,8 @@
             "main-category",
             "type"
           ]
-        }
+        },
+        "uniqueItems": true
       }
     },
     "required": [
@@ -97,5 +102,6 @@
       "delivery-fee",
       "items"
     ]
-  }
+  },
+  "uniqueItems": true
 }
