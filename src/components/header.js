@@ -1,10 +1,14 @@
-"use strict";
-
-import React, {Fragment} from "react";
+import React, { Fragment, useEffect, useState } from "react";
 // import PropTypes from "prop-types";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-
+import Stack from "@mui/material/Stack";
+import TextField from "@mui/material/TextField";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import IconButton from "@mui/material/IconButton";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { styled as muistyled } from "@mui/material/styles";
 
 const HeaderLeftBase = styled.div`
   flex-grow: 1;
@@ -12,23 +16,27 @@ const HeaderLeftBase = styled.div`
 
   & > a {
     text-decoration: none;
+
     & > h2 {
-      color: #E2C218;
+      font-family: "Inter";
+      color: #e2c218;
       margin: 0.75em 0 0.75em 0.5em;
-      font-weight: 400;
+      font-weight: 700;
       font-style: normal;
+      -webkit-text-stroke: 0.01px #feecac;
+      font-size: 30px;
     }
   }
 `;
 
 const HeaderLeft = () => {
-    return (
-        <HeaderLeftBase>
-            <Link to='/'>
-                <h2>GrocerySmart</h2>
-            </Link>
-        </HeaderLeftBase>
-    );
+  return (
+    <HeaderLeftBase>
+      <Link to="/">
+        <h2>GrocerySmart</h2>
+      </Link>
+    </HeaderLeftBase>
+  );
 };
 
 // For future use
@@ -46,24 +54,108 @@ const HeaderRightBase = styled.div`
   padding-right: 0.5em;
 
   & > a {
-    color: #c4a1a1;
+    text-decoration: none;
+    color: black;
     padding-right: 0.5em;
+    font-family: Inter;
+    font-weight: 700;
+    font-size: 16px;
   }
 `;
 
+const SearchBarWrapper = styled.div`
+  margin-right: 20px;
+`;
+
 const HeaderRight = () => {
-    return (
-        <HeaderRightBase>
-            <Fragment>
-                <Link id="signinLink" to="/signin">
-                    Sign In
-                </Link>
-                <Link id="signupLink" to="/signup">
-                    Sign Up
-                </Link>
-            </Fragment>
-        </HeaderRightBase>
-    );
+  const [query, setQuery] = useState("");
+
+  useEffect(() => {
+    setQuery("");
+  }, []);
+
+  const wishlistBtnTheme = createTheme({
+    palette: {
+      primary: {
+        main: "#F19999",
+        darker: "#a86b6b",
+      },
+    },
+  });
+
+  const cartBtnTheme = createTheme({
+    palette: {
+      primary: {
+        main: "#FFC700",
+        darker: "#CC9F00",
+      },
+    },
+  });
+
+  const searchHandler = (e) => {
+    e.preventDefault();
+    setQuery(e.target.value);
+  };
+
+  const SearchBox = muistyled(TextField)(() => ({
+    "& fieldset": {
+      borderRadius: "25px",
+    },
+  }));
+
+  return (
+    <HeaderRightBase>
+      <SearchBarWrapper>
+        <SearchBox
+          onChange={searchHandler}
+          variant={"outlined"}
+          label={"Search"}
+          size={"small"}
+          style={{ borderRadius: 15 }}
+          value={query}
+        />
+      </SearchBarWrapper>
+      <Fragment>
+        <Link id="signinLink" to="/signin">
+          Sign In
+        </Link>
+        <Link id="signupLink" to="/signup">
+          Sign Up
+        </Link>
+      </Fragment>
+      <Stack
+        direction="row"
+        justifyContent="flex-end"
+        alignItems="center"
+        spacing={0}
+        marginRight="17px"
+      >
+        <ThemeProvider theme={cartBtnTheme}>
+          <IconButton
+            color="primary"
+            aria-label="go to shopping cart"
+            onClick={() => {
+              console.log("Go to cart");
+            }}
+          >
+            <ShoppingCartIcon fontSize={"large"} />
+          </IconButton>
+        </ThemeProvider>
+
+        <ThemeProvider theme={wishlistBtnTheme}>
+          <IconButton
+            color="primary"
+            aria-label="go to wish list"
+            onClick={() => {
+              console.log("Go to wish list");
+            }}
+          >
+            <FavoriteIcon fontSize={"large"} />
+          </IconButton>
+        </ThemeProvider>
+      </Stack>
+    </HeaderRightBase>
+  );
 };
 
 // For future use
@@ -76,15 +168,15 @@ const HeaderRight = () => {
 const HeaderBase = styled.div`
   grid-area: hd;
   display: flex;
-  background: #000;
+  background: #a0d3f8;
   //height: 50px;
 `;
 
 export const Header = () => (
-    <HeaderBase>
-        <HeaderLeft />
-        <HeaderRight />
-    </HeaderBase>
+  <HeaderBase>
+    <HeaderLeft />
+    <HeaderRight />
+  </HeaderBase>
 );
 
 // For future use
