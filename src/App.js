@@ -8,6 +8,7 @@ import {SignIn} from "./components/signin";
 import {SignUp} from "./components/signup";
 import {SearchResults} from "./components/searchresults";
 import {Welcome} from "./components/welcome";
+import {Compare} from "./components/compare";
 
 const GridBase = styled.div`
   display: grid;
@@ -51,6 +52,10 @@ function App() {
                     // path="/search/:item"
                     path="/search"
                     render={() => <SearchResults/>}
+                />
+                <Route            
+                    path="/compare"
+                    render={() => <Compare/>}
                 />
 
             </GridBase>

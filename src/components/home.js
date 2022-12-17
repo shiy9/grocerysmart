@@ -5,6 +5,7 @@ import styled from "styled-components";
 import Button from '@mui/material/Button';
 import { borderColor, fontFamily } from "@mui/system";
 import  {useState} from 'react'
+import {Routes, Route, useNavigate,useHistory} from 'react-router-dom';
 
 const HomeBase = styled.div`
   display: flex;
@@ -45,12 +46,23 @@ const srchBtnStyle = {
           borderRadius: "15px",
           cornerRadius: "30px",
           height: "43px",
-          width: "131px",
+          width: "10%",
           color:"black",
           border:"2px solid #000000",
-          textTransform:"none"
-          
+          textTransform:"none",
+          alignItems: 'right',
+          marginLeft: '3%',
+          fontSize: '19px'
       };
+      // const styles = StyleSheet.create({
+      //   input: {
+      //     height: 40,
+      //     // width: 100,
+      //     margin: 12,
+      //     borderWidth: 1,
+      //     padding: 10,
+      //   },
+      // });
       
       
       // const searchBar = () => {
@@ -83,8 +95,48 @@ const srchBtnStyle = {
       
       //  };
       
+
+      // const searchBar = () => {
+
+      //   const [searchInput, setSearchInput] = useState("");
+       
+      //   const countries = [
+      //     {category: "Meat and Seafood", subCategory: "Beef" },
+      //     { category: "Meat and Seafood", subCategory: "Chicken" },
+      //     { category: "Meat and Seafood", subCategory: "Mutton" },
+      //     { category: "Meat and Seafood", subCategory: "Pork" },
+      //     { category: "Meat and Seafood", subCategory: "Fish" },
+      //     { category: "Meat and Seafood", subCategory: "Seafood" },
+      //     { category: "Produce", subCategory: "Fruits" },
+      //     { category: "Dairy and Eggs", subCategory: "Eggs" },
+      //     { category: "Beverage", subCategory: "Soft Drinks" },
+      //     { category: "Household", subCategory: "Cleaning" },
+      //     { category: "Personal Care", subCategory: "Hair Care" }
+          
+      //   ];
+      //   const handleChange = (e) => {
+      //     e.preventDefault();
+      //     setSearchInput(e.target.value);
+      //   };
+      //   return({})
+      // } ;
+export const Home = () => {
+  
+  const [searchInput, setSearchInput] = useState("");
+
+       
+      const handleChange = (e) => {
+        e.preventDefault();
+        setSearchInput(e.target.value);
+      };
+      let history = useHistory();
+
+  const redirect = () => {
+    history.push('/search/'+searchInput)
+  }
+      
     
-export const Home = () => (
+      return(
     <HomeBase>
       <MainCatBase>
       
@@ -97,14 +149,23 @@ export const Home = () => (
             </MainCatBase>
             <div style={{display:"flex", flexDirection:"column",height: "80%",width:"100%",textAlign: "center",alignItems:"center",justifyContent:"center",position: "fixed"}}>
             {/* <div style={{display:"flex", height: "80%",width:"100%",textAlign: "center",alignItems:"center",justifyContent:"center",verticalAlign:"middle"}}>  */}
-            <div>Search for items to add to your list
+            <div>Search for items to add to your list</div>
             {/* </div> */}
-            <div style={{width: "100%", textAlign: "center", marginTop: "30px",fontFamily:"inter"}}>
-                        <Button style={srchBtnStyle}>Search</Button>
-                    </div>
+            <div style={{display:"flex", flexFlow:"row wrap",width: "100%", textAlign: "center", marginTop: "30px",fontFamily:"inter"}}>
+            
+            <input 
+   type="search"
+   placeholder=""
+   style={{width: "50%",height:'43px',alignItems:'center',marginLeft:'15%',border:"2px solid #000000",fontSize: '19px'}}
+   onChange={handleChange}
+   value={searchInput} />
+   
+                       <Button style={srchBtnStyle} onClick={redirect}>Search</Button>
+                   
                     </div>
                     </div>
             
         {/* <h2>This is home page test commit</h2> */}
     </HomeBase>
-);
+      )
+};
