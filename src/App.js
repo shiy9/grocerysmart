@@ -9,6 +9,8 @@ import { SignUp } from "./components/signup";
 import { SearchResults } from "./components/searchresults";
 import { MainCategory } from "./components/maincategory";
 import { SubCategory } from "./components/subcategory";
+import { Welcome } from "./components/welcome";
+import { Compare } from "./components/compare";
 
 const GridBase = styled.div`
   display: grid;
@@ -40,6 +42,8 @@ function App() {
         <Route path="/search/:item" render={() => <SearchResults />} />
         <Route path="/maincat/:cat" render={() => <MainCategory />} />
         <Route path="/subcat/:cat" render={() => <SubCategory />} />
+        <Route path="/welcome" render={() => <Welcome />} />
+        <Route path="/compare" render={() => <Compare />} />
       </GridBase>
     </BrowserRouter>
   );
