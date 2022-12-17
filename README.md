@@ -21,6 +21,8 @@ let cartData = sessionStorage.getItem("cart") === null
                 : JSON.parse(sessionStorage.getItem("cart"));
 ```
 ### Example structure of `cart` in `sessionStorage`
+Note that the only different between this and an item in `inventory.json` is there is an extra `quantity` attribute.
+
 ```JSON
 [
   {
