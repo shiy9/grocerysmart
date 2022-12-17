@@ -1,6 +1,72 @@
 # Grocery Smart
+## How the data is stored:
+* Content of the **cart** is stored in `sessionStorage` with a key of `"cart"`, it is an array of JavaScript objects.
+* The list of selected stores is stored in `sessionStorage` with a key of `"sel-stores"`, it is an array of store ids (integers).
+* All the store and items information are stored in `src/data/inventory.json`. The schema for this JSON file is in `src/data/schemas/inventory-schema.json`
+
+For anything in `sessionStorage`, you can store and retrieve the items with the following operations:
+  * Here is an example to store and retrieve cart content:
+```javascript
+// JSON.parse because sessionStorage can only store strings, 
+// and we need to stringify the original data
+let cartData = JSON.parse(sessionStorage.getItem("cart"));
+// Do some manipulation on cartData here
+sessionStorage.setItem("cart", JSON.stringify(cartData));
+
+// If you are not sure if the key is present in sessionStorage,
+// and want to start with an empty array if it is not, 
+// then use this handy ternary operation:
+let cartData = sessionStorage.getItem("cart") === null
+                ? []
+                : JSON.parse(sessionStorage.getItem("cart"));
+```
+### Example structure of `cart` in `sessionStorage`
+```JSON
+[
+  {
+    "item-id": 1,
+    "item-name": "Bananas (Dozen)",
+    "unit-price": 3.99,
+    "unit": "unit",
+    "tot-price": 3.99,
+    "num-sold": 800,
+    "pic-dir": "banana-1.jpg",
+    "storeid": 0,
+    "sub-category": "fruit",
+    "main-category": "produce",
+    "type": "g",
+    "quantity": 1,
+  },
+  ...
+]
+```
+
+### Example structure of selected stores (`sel-stores`) in `sessionStorage`
+Just a list of integers representing store ids
+```JSON
+[0, 3, 2]
+```
+
+### Main and sub-categories of the items in `inventory.json`
+* Main categories: [
+  "Produce",
+  "Meat and Seafood",
+  "Dairy and Eggs",
+  "Beverage",
+  "Household",
+  "Personal Care"
+  ]
+* Sub categories **(WORK IN PROGRESS)**:
+  * Produce: ["Fruit", "Vegetable"]
+  * Meat and Seafood: ["Beef", "Chicken", "Mutton", "Pork", "Fish", "Seafood"]
+  * Dairy and Eggs:
+  * Beverage:
+  * Household
+  * Personal Care:
 
 ## Updates:
+* main branch, 12/17:
+  * Merged Welcome and Home page to `main`
 * main branch, 12/16:
   * Added `src/data/schemas` containing JSON schema files to enforce the JSON data structure. You can apply the schema in your preferred IDE
 , and when adding data to the JSON files, you should see a warning when some of the fields do not meet the requirements.
