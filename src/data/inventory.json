@@ -1,8 +1,10 @@
-{
-  "0000": {
+[
+  {
+    "store-id": 0,
     "store-name": "Trader Joe's",
     "location": "123 street",
     "distance": "1.2 miles",
+    "delivery-fee": 4.99,
     "items": [
       {
         "item-name": "Bananas (Dozen)",
@@ -11,7 +13,7 @@
         "tot-price": 3.99,
         "num-sold": 800,
         "pic-dir": "banana-1.jpg",
-        "storeid": "0000",
+        "storeid": 0,
         "sub-category": "fruit",
         "main-category": "produce",
         "type": "g"
@@ -23,7 +25,7 @@
         "tot-price": 1.99,
         "num-sold": 273,
         "pic-dir": "honeycrisp-1.jpeg",
-        "storeid": "0000",
+        "storeid": 0,
         "sub-category": "fruit",
         "main-category": "produce",
         "type": "g"
@@ -35,7 +37,9 @@
         "tot-price": 5.99,
         "num-sold": 192,
         "pic-dir": "chicken-thigh.png",
-        "storeid": "0000",
+        "storeid": 1,
+        "sub-category": "chicken",
+        "main-category": "meat-seafood",
         "type": "s"
       },
       {
@@ -45,14 +49,19 @@
         "tot-price": 13.98,
         "num-sold": 473,
         "pic-dir": "chicken-breast.png",
-        "storeid": "0000"
+        "storeid": 0,
+        "sub-category": "chicken",
+        "main-category": "meat-seafood",
+        "type": "s"
       }
     ]
   },
-  "0001": {
+  {
+    "store-id": 1,
     "store-name": "Whole Foods",
     "location": "445 street",
     "distance": "2.2 miles",
+    "delivery-fee": 3.99,
     "items": [
       {
         "item-name": "Bananas (Dozen)",
@@ -61,7 +70,10 @@
         "tot-price": 3.99,
         "num-sold": 800,
         "pic-dir": "banana-1.jpg",
-        "storeid": "0001"
+        "storeid": 1,
+        "sub-category": "fruit",
+        "main-category": "produce",
+        "type": "g"
       },
       {
         "item-name": "Honeycrisp Apples",
@@ -70,7 +82,10 @@
         "tot-price": 1.99,
         "num-sold": 273,
         "pic-dir": "honeycrisp-1.jpeg",
-        "storeid": "0001"
+        "storeid": 1,
+        "sub-category": "fruit",
+        "main-category": "produce",
+        "type": "g"
       },
       {
         "item-name": "Chicken Mid Join Wing, Frozen, 2 lbs",
@@ -79,7 +94,10 @@
         "tot-price": 13.49,
         "num-sold": 182,
         "pic-dir": "chicken-mid-join-wing.png",
-        "storeid": "0001"
+        "storeid": 1,
+        "sub-category": "chicken",
+        "main-category": "meat-seafood",
+        "type": "s"
       },
       {
         "item-name": "Organic Chicken Nuggets",
@@ -88,8 +106,11 @@
         "tot-price": 5.99,
         "num-sold": 291,
         "pic-dir": "chicken-nuggets.jpg",
-        "storeid": "0001"
+        "storeid": 1,
+        "sub-category": "chicken",
+        "main-category": "meat-seafood",
+        "type": "s"
       }
     ]
   }
-}
+]
