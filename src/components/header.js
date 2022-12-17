@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 // import PropTypes from "prop-types";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
@@ -9,6 +9,8 @@ import IconButton from "@mui/material/IconButton";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { styled as muistyled } from "@mui/material/styles";
+import InputAdornment from "@mui/material/InputAdornment";
+import SearchIcon from "@mui/icons-material/Search";
 
 const HeaderLeftBase = styled.div`
   flex-grow: 1;
@@ -60,6 +62,8 @@ const HeaderRightBase = styled.div`
     font-family: Inter;
     font-weight: 700;
     font-size: 16px;
+    margin-left: 5px;
+    margin-right: 5px;
   }
 `;
 
@@ -67,8 +71,15 @@ const SearchBarWrapper = styled.div`
   margin-right: 20px;
 `;
 
+const SearchBox = muistyled(TextField)(() => ({
+  "& fieldset": {
+    borderRadius: "25px",
+  },
+}));
+
 const HeaderRight = () => {
   const [query, setQuery] = useState("");
+  const history = useHistory();
 
   useEffect(() => {
     setQuery("");
@@ -93,26 +104,40 @@ const HeaderRight = () => {
   });
 
   const searchHandler = (e) => {
-    e.preventDefault();
     setQuery(e.target.value);
   };
 
-  const SearchBox = muistyled(TextField)(() => ({
-    "& fieldset": {
-      borderRadius: "25px",
-    },
-  }));
+  const submitHandler = (e) => {
+    if (e.key === "Enter") {
+      history.push("/search/" + query);
+    }
+  };
 
   return (
     <HeaderRightBase>
+      <Fragment>
+        <Link id="gethelp" to="/gethelp">
+          Get Help
+        </Link>
+        <Link id="helpanother" to="/helpanother">
+          Help Another
+        </Link>
+      </Fragment>
       <SearchBarWrapper>
         <SearchBox
           onChange={searchHandler}
+          onKeyDown={submitHandler}
           variant={"outlined"}
           label={"Search"}
           size={"small"}
           style={{ borderRadius: 15 }}
-          value={query}
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <SearchIcon />
+              </InputAdornment>
+            ),
+          }}
         />
       </SearchBarWrapper>
       <Fragment>
