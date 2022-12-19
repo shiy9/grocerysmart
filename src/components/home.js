@@ -37,6 +37,17 @@ const MainCatButton = styled.button`
     background-color: #FEECAC;
   }
 `;
+const BackgroundImage = styled.div`
+background-color: orange;
+background-repeat: no-repeat;
+background-image: url('/welcome.png')  ;
+position:fixed;
+top:8%;
+
+height:100%;
+width: 100%;
+margin: auto
+`;
 const mainCat = ["Produce", "Meat and Seafood", "Dairy and Eggs", "Beverage",
         "Household", "Personal Care"];
 const srchBtnStyle = {
@@ -54,72 +65,8 @@ const srchBtnStyle = {
           marginLeft: '3%',
           fontSize: '19px'
       };
-      // const styles = StyleSheet.create({
-      //   input: {
-      //     height: 40,
-      //     // width: 100,
-      //     margin: 12,
-      //     borderWidth: 1,
-      //     padding: 10,
-      //   },
-      // });
-      
-      
-      // const searchBar = () => {
-      
-       
-      // const [searchInput, setSearchInput] = useState("");
-
-       
-    //   const handleChange = (e) => {
-    //     e.preventDefault();
-    //     setSearchInput(e.target.value);
-    //   };
-      
-    //   // if (searchInput.length > 0) {
-    //   //     countries.filter((country) => {
-    //   //     return country.name.match(searchInput);
-    //   // });
-    //   // }
-      
-    //   <div>
-      
-    //   <input
-    //      type="search"
-    //      placeholder="Search here"
-    //      onChange={handleChange}
-    //      value={searchInput} />
-      
-    //   </div>
-      
-      
-      //  };
-      
-
-      // const searchBar = () => {
-
-      //   const [searchInput, setSearchInput] = useState("");
-       
-      //   const countries = [
-      //     {category: "Meat and Seafood", subCategory: "Beef" },
-      //     { category: "Meat and Seafood", subCategory: "Chicken" },
-      //     { category: "Meat and Seafood", subCategory: "Mutton" },
-      //     { category: "Meat and Seafood", subCategory: "Pork" },
-      //     { category: "Meat and Seafood", subCategory: "Fish" },
-      //     { category: "Meat and Seafood", subCategory: "Seafood" },
-      //     { category: "Produce", subCategory: "Fruits" },
-      //     { category: "Dairy and Eggs", subCategory: "Eggs" },
-      //     { category: "Beverage", subCategory: "Soft Drinks" },
-      //     { category: "Household", subCategory: "Cleaning" },
-      //     { category: "Personal Care", subCategory: "Hair Care" }
-          
-      //   ];
-      //   const handleChange = (e) => {
-      //     e.preventDefault();
-      //     setSearchInput(e.target.value);
-      //   };
-      //   return({})
-      // } ;
+     
+    
 export const Home = () => {
   
   const [searchInput, setSearchInput] = useState("");
@@ -148,23 +95,23 @@ export const Home = () => {
                     </MainCatButton>))}
             </MainCatBase>
             <div style={{display:"flex", flexDirection:"column",height: "80%",width:"100%",textAlign: "center",alignItems:"center",justifyContent:"center",position: "fixed"}}>
-            {/* <div style={{display:"flex", height: "80%",width:"100%",textAlign: "center",alignItems:"center",justifyContent:"center",verticalAlign:"middle"}}>  */}
-            <div>Search for items to add to your list</div>
-            {/* </div> */}
-            <div style={{display:"flex", flexFlow:"row wrap",width: "100%", textAlign: "center", marginTop: "30px",fontFamily:"inter"}}>
+            
+            <div style={{display:"flex", flexFlow:"row wrap",width: "100%", textAlign: "center", marginTop: "10%",fontFamily:"inter",marginBottom:"3%",marginLeft:'20%'}}>
             
             <input 
    type="search"
-   placeholder=""
-   style={{width: "50%",height:'43px',alignItems:'center',marginLeft:'15%',border:"2px solid #000000",fontSize: '19px'}}
+   placeholder="Search for items to add to your list"
+   style={{width: "40%",height:'43px',alignItems:'center',marginLeft:'15%',border:"2px solid #000000",fontSize: '19px'}}
    onChange={handleChange}
    value={searchInput} />
    
                        <Button style={srchBtnStyle} onClick={redirect}>Search</Button>
                    
                     </div>
+                   
+                    <img src='home.png' width='70%'height="70%"/>
                     </div>
-            
+            {/* <img src="src/data/images/home.jpeg" height="400" width="500"/> */}
         {/* <h2>This is home page test commit</h2> */}
     </HomeBase>
       )
