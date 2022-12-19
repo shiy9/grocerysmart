@@ -39,7 +39,7 @@ function App() {
         <Route exact path="/" component={Home} />
         <Route path="/signin" render={() => <SignIn />} />
         <Route path="/signup" render={() => <SignUp />} />
-        <Route path="/search/:item" render={() => <SearchResults />} />
+        <Route path="/search" render={() => <SearchResults />} />
         <Route path="/maincat/:cat" render={() => <MainCategory />} />
         <Route path="/subcat/:cat" render={() => <SubCategory />} />
         <Route path="/welcome" render={() => <Welcome />} />

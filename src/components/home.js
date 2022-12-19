@@ -111,7 +111,9 @@ export const Home = () => {
                    
                     <img src='home.png' width='70%'height="70%"/>
                     </div>
+
             {/* <img src="src/data/images/home.jpeg" height="400" width="500"/> */}
+
         {/* <h2>This is home page test commit</h2> */}
     </HomeBase>
       )
