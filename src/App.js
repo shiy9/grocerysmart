@@ -36,13 +36,13 @@ function App() {
     <BrowserRouter>
       <GridBase>
         <Header />
-        <Route exact path="/" component={Home} />
+        <Route exact path="/" component={Welcome} />
+        <Route path="/home" render={() => <Home />} />
         <Route path="/signin" render={() => <SignIn />} />
         <Route path="/signup" render={() => <SignUp />} />
         <Route path="/search" render={() => <SearchResults />} />
         <Route path="/maincat/:cat" render={() => <MainCategory />} />
         <Route path="/subcat/:cat" render={() => <SubCategory />} />
-        <Route path="/welcome" render={() => <Welcome />} />
         <Route path="/compare" render={() => <Compare />} />
       </GridBase>
     </BrowserRouter>

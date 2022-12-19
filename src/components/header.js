@@ -34,7 +34,7 @@ const HeaderLeftBase = styled.div`
 const HeaderLeft = () => {
   return (
     <HeaderLeftBase>
-      <Link to="/">
+      <Link to="/home">
         <h2>GrocerySmart</h2>
       </Link>
     </HeaderLeftBase>
