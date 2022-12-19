@@ -120,5 +120,69 @@
         "type": "s"
       }
     ]
+  },
+  {
+    "store-id": 2,
+    "store-name": "Westside Market",
+    "location": "110 street",
+    "distance": "0.3 miles",
+    "delivery-fee": 0,
+    "items": []
+  },
+  {
+    "store-id": 3,
+    "store-name": "Eden Market",
+    "location": "178 street",
+    "distance": "0.6 miles",
+    "delivery-fee": 0,
+    "items": []
+  },
+  {
+    "store-id": 4,
+    "store-name": "Deli Grocery",
+    "location": "104 street",
+    "distance": "1.6 miles",
+    "delivery-fee": 1.99,
+    "items": []
+  },
+  {
+    "store-id": 5,
+    "store-name": "Whole Food's",
+    "location": "8th Ave",
+    "distance": "2.6 miles",
+    "delivery-fee": 2.99,
+    "items": []
+  },
+  {
+    "store-id": 6,
+    "store-name": "Central Market",
+    "location": "111 street",
+    "distance": "0.7 miles",
+    "delivery-fee": 0,
+    "items": []
+  },
+  {
+    "store-id": 7,
+    "store-name": "Trader Joe's",
+    "location": "136 street",
+    "distance": "1.9 miles",
+    "delivery-fee": 0.99,
+    "items": []
+  },
+  {
+    "store-id": 8,
+    "store-name": "Target Grocery",
+    "location": "92 street",
+    "distance": "2.7 miles",
+    "delivery-fee": 3.99,
+    "items": []
+  },
+  {
+    "store-id": 9,
+    "store-name": "Trader Joe's",
+    "location": "827 street",
+    "distance": "3.6 miles",
+    "delivery-fee": 6.99,
+    "items": []
   }
 ]
