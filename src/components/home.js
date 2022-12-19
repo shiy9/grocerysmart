@@ -164,7 +164,7 @@ export const Home = () => {
                    
                     </div>
                     </div>
-            
+            <img src="src/data/images/home.jpeg"/>
         {/* <h2>This is home page test commit</h2> */}
     </HomeBase>
       )
