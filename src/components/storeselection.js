@@ -3,7 +3,7 @@ import inventory from "../data/inventory.json";
 import IconButton from "@mui/material/IconButton";
 import styled from "styled-components";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Stack from "@mui/material/Stack";
 import Switch from "@mui/material/Switch";
 import Typography from "@mui/material/Typography";
@@ -289,6 +289,7 @@ export const StoreSelection = () => {
   const [curList, setCurList] = useState([]);
   const [dummy, setDummy] = useState(false);
   const invData = JSON.parse(JSON.stringify(inventory));
+  const history = useHistory();
 
   useEffect(() => {
     let selStores =
@@ -297,12 +298,19 @@ export const StoreSelection = () => {
         : JSON.parse(sessionStorage.getItem("sel-stores"));
     setCurList(selStores);
     setStoreDisp(invData);
+  }, []);
+
+  useEffect(() => {
     setDummy(false);
   }, [dummy]);
 
   const keyGenerator = (s) => {
     const curDate = new Date();
     return s["store-id"] + s["store-name"] + curDate.getTime();
+  };
+
+  const toHomePage = () => {
+    history.push("/");
   };
 
   return (
@@ -474,6 +482,9 @@ export const StoreSelection = () => {
                   border: "1px solid",
                   fontWeight: "700",
                   fontSize: "14px",
+                }}
+                onClick={() => {
+                  console.log("Entered zipcode");
                 }}
               >
                 Enter
