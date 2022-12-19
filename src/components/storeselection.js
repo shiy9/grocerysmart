@@ -164,6 +164,7 @@ const addBtnTheme = createTheme({
 
 const SelectedDoneBtn = styled.div`
   display: flex;
+  margin-bottom: 15px;
 `;
 
 const SelectedStores = styled.div`
@@ -202,46 +203,80 @@ const ZipcodeSection = styled.div`
   border-right: 2px solid black;
 `;
 
-const BrowseBtnSection = styled.div`
-  flex: 1;
-  display: flex;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-`;
+const OneStore = ({ storeInfo, forceRefresh }) => {
+  const [storeAdded, setStoreAdded] = useState(false);
 
-const OneStore = () => {
+  const toggleAdd = () => {
+    let selStores =
+      sessionStorage.getItem("sel-stores") === null
+        ? []
+        : JSON.parse(sessionStorage.getItem("sel-stores"));
+    if (storeAdded) {
+      selStores = selStores.filter(
+        (s) => s["store-id"] !== storeInfo["store-id"]
+      );
+    } else {
+      selStores.push(storeInfo);
+    }
+    sessionStorage.setItem("sel-stores", JSON.stringify(selStores));
+    setStoreAdded(!storeAdded);
+    // forceRefresh(true);
+  };
   return (
     <OneStoreBase>
       <MarkerIconBase>
         <RoomIcon fontSize={"large"} />
       </MarkerIconBase>
       <StoreInfo>
-        <StoreTitle>Trader Joe's</StoreTitle>
+        <StoreTitle>{storeInfo["store-name"]}</StoreTitle>
         <AddrDistance>
-          <div style={{ flex: 3 }}>Address: 1234 trader street</div>
-          <div style={{ flex: 2 }}>Distance: 2mi</div>
+          <div style={{ flex: 3 }}>Address: {storeInfo["location"]}</div>
+          <div style={{ flex: 2 }}>Distance: {storeInfo["distance"]}</div>
         </AddrDistance>
         <HoursDeliveryFee>
           <div style={{ flex: 3 }}>Hours: M-F 6am-9pm, Weekend: 10pm-5pm</div>
-          <div style={{ flex: 2 }}>Est.Delivery fee: $4.99</div>
+          <div style={{ flex: 2 }}>
+            Est.Delivery fee:{" "}
+            {storeInfo["delivery-fee"] === 0
+              ? "Free"
+              : "$" + storeInfo["delivery-fee"]}
+          </div>
         </HoursDeliveryFee>
         <div style={{ width: "100%", textAlign: "center" }}>
           <ThemeProvider theme={addBtnTheme}>
-            <Button
-              color={"primary"}
-              variant="outlined"
-              size={"large"}
-              style={{
-                border: "2px solid",
-                fontWeight: "700",
-                fontSize: "14px",
-                width: "60%",
-                marginTop: "12px",
-              }}
-            >
-              Add Store
-            </Button>
+            {storeAdded ? (
+              <Button
+                color={"primary"}
+                variant="contained"
+                size={"large"}
+                style={{
+                  border: "2px solid",
+                  fontWeight: "700",
+                  fontSize: "14px",
+                  width: "60%",
+                  marginTop: "12px",
+                }}
+                onClick={toggleAdd}
+              >
+                Store added
+              </Button>
+            ) : (
+              <Button
+                color={"primary"}
+                variant="outlined"
+                size={"large"}
+                style={{
+                  border: "2px solid",
+                  fontWeight: "700",
+                  fontSize: "14px",
+                  width: "60%",
+                  marginTop: "12px",
+                }}
+                onClick={toggleAdd}
+              >
+                Add Store
+              </Button>
+            )}
           </ThemeProvider>
         </div>
       </StoreInfo>
@@ -250,7 +285,25 @@ const OneStore = () => {
 };
 
 export const StoreSelection = () => {
-  useEffect(() => {}, []);
+  const [storeDisp, setStoreDisp] = useState([]);
+  const [curList, setCurList] = useState([]);
+  const [dummy, setDummy] = useState(false);
+  const invData = JSON.parse(JSON.stringify(inventory));
+
+  useEffect(() => {
+    let selStores =
+      sessionStorage.getItem("sel-stores") === null
+        ? []
+        : JSON.parse(sessionStorage.getItem("sel-stores"));
+    setCurList(selStores);
+    setStoreDisp(invData);
+    setDummy(false);
+  }, [dummy]);
+
+  const keyGenerator = (s) => {
+    const curDate = new Date();
+    return s["store-id"] + s["store-name"] + curDate.getTime();
+  };
 
   return (
     <PageBase>
@@ -308,13 +361,20 @@ export const StoreSelection = () => {
               size={"small"}
             ></TextField>
             <Stores>
-              <OneStore></OneStore>
-              <OneStore></OneStore>
-              <OneStore></OneStore>
-              <OneStore></OneStore>
-              <OneStore></OneStore>
-              <OneStore></OneStore>
-              <OneStore></OneStore>
+              {storeDisp.map((s) => (
+                <OneStore
+                  key={keyGenerator(s)}
+                  storeInfo={s}
+                  forceRefresh={setDummy}
+                ></OneStore>
+              ))}
+              {/*<OneStore></OneStore>*/}
+              {/*<OneStore></OneStore>*/}
+              {/*<OneStore></OneStore>*/}
+              {/*<OneStore></OneStore>*/}
+              {/*<OneStore></OneStore>*/}
+              {/*<OneStore></OneStore>*/}
+              {/*<OneStore></OneStore>*/}
             </Stores>
           </ListBase>
           <MapContainer>
@@ -325,6 +385,13 @@ export const StoreSelection = () => {
           <SelectedStores>
             <SearchLabel>Selected Stores:</SearchLabel>
             <StoreDisp>
+              {curList.map((s) => (
+                <StoreEntry key={keyGenerator(s)}>
+                  {s["store-name"]} ({s["location"]}), distance: {s["distance"]}
+                  , delivery fee:{" "}
+                  {s["delivery-fee"] === 0 ? "Free" : "$" + s["delivery-fee"]}
+                </StoreEntry>
+              ))}
               <StoreEntry>
                 Trader Joe’s (2nd Street), distance: xxx mi, delivery fee: $x.xx
               </StoreEntry>
@@ -359,32 +426,76 @@ export const StoreSelection = () => {
           </DoneBtnContainer>
         </SelectedDoneBtn>
       </MainSection>
-      <Divider style={{ marginTop: "25px", fontSize: "25px" }}>OR</Divider>
+      <Divider
+        style={{ marginTop: "25px", fontSize: "25px", marginBottom: "25px" }}
+      >
+        OR
+      </Divider>
       <BottomSection>
         <ZipcodeSection>
-          <div>Enter zipcode to show results from all nearby stores</div>
-          <div style={{ display: "flex", flexDirection: "row" }}>
+          <div
+            style={{
+              fontWeight: "700",
+              fontSize: "20px",
+              marginTop: "15px",
+              marginLeft: "25px",
+              marginBottom: "5px",
+            }}
+          >
+            Enter zipcode to show results from all nearby stores
+          </div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              marginTop: "30px",
+              marginLeft: "25px",
+              marginBottom: "35px",
+              alignItems: "center",
+            }}
+          >
             <TextField
               variant={"outlined"}
               label={"Zipcode"}
               size={"small"}
             ></TextField>
-            <Button
-              variant="outlined"
-              size={"small"}
+            <div
               style={{
-                border: "1px solid",
-                fontWeight: "700",
-                fontSize: "14px",
-                width: "50px",
-                marginTop: "12px",
-                marginLeft: "10px",
+                marginLeft: "25px",
+                alignItems: "center",
+                justifyItems: "center",
+                textAlign: "center",
               }}
             >
-              Enter
-            </Button>
+              <Button
+                variant="outlined"
+                size={"small"}
+                style={{
+                  border: "1px solid",
+                  fontWeight: "700",
+                  fontSize: "14px",
+                }}
+              >
+                Enter
+              </Button>
+            </div>
           </div>
         </ZipcodeSection>
+        <DoneBtnContainer>
+          <Button
+            variant="outlined"
+            size={"large"}
+            style={{
+              border: "2px solid",
+              fontWeight: "700",
+              fontSize: "14px",
+              width: "40%",
+              marginTop: "12px",
+            }}
+          >
+            Just browsing prices!
+          </Button>
+        </DoneBtnContainer>
       </BottomSection>
     </PageBase>
   );
