@@ -1,4 +1,77 @@
 # Grocery Smart
+* 2022 Fall COMS 4170 UI Design 
+* Team 20: Aarushi Jain (aj3087), Tongyu Liu (tl3181), Yuxuan (Bill) Shi (ys3595), Jing Wu (jw4288)
+* Mentor: Sofia Bianchi
+
+**Note: this README file was used throughout the project development stage and was written by Bill--hence some first-person occurrences**
+
+**The README may look more presentable on GitHub rather than on a local IDE. If you are interested in taking a closer look at our project, feel free to reach out to me (Bill) on slack any time after the project's due date,
+and I can add you as a collaborator!**
+
+## How to start and run the project
+
+If you have never installed Node.js on your machine, install it [here](https://nodejs.org/en/download/). \
+You will need it to install packages and run the following `npm` commands.
+
+* ### Open the project in your preferred IDE (the team used Webstorm and VSCode for the project)
+* ### Run `npm install` in the terminal (system and IDE terminals would both work)
+  * This command installs all the needed packages in the dependencies.
+* ### Run `npm start`
+  * This will run the app in the development mode.\
+  Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+  * **If, for whatever reason, any of the above commands failed to work, feel free to contact Bill on Slack at any time!**
+* ### To quit the application, press Ctrl + C in the terminal
+* ### As explained in the report, since we are inputting data manually, there were only so many items we could put in as the dummy data within the time frame. 
+* ### For optimal demonstration, search "apple" or "chicken" or click on any of the main category buttons for a rather populated page.
+
+## Folder Structure
+```
+|--- public
+|   |--- index.html (Not super important in the case of our single-page application)
+|   |--- (misc. items from create-react-app)
+|--- src
+|   |--- components (folder)
+|   |   |--- css (folder)
+|   |   |   |--- Two CSS files for the two static pages in HTML/CSS (detailed items and shopping cart page)
+|   |   |
+|   |   |--- Every .js file in the components folder is a single page/component
+|   |
+|   |--- data (folder) (this is our "backend")
+|   |   |--- images (folder)
+|   |   |   |--- Our image "database"
+|   |   |
+|   |   |--- schemas (folder)
+|   |   |   |--- Stores all the schemas for our json files for error checking
+|   |   |
+|   |   |--- inventory.json (the file storing all the store and inventory information, more information below)
+|   |   |--- priceCompare.json (the file storing display information for the static price compare page)
+|   |   |--- selected-stores.json (the file containig which stores are selected by the user--just a JSON array)
+|   |   |--- cart.json (deprecated)
+|   |   |--- cart_compare.json (deprecated)
+|   |
+|   |--- App.js (where the main component lives and all the React Routing happens)
+|   |--- (misc. items from create-react-app)
+```
+
+## List of URLs
+Putting the list here in case any of the button mal-functions (all the buttons that are supposed to work should work :)
+You can also see the routes in `src/App.js`
+* Welcome page: http://localhost:3000
+* Store Selection Page: http://localhost:3000/storeselect
+* Home/Search-bar Page: http://localhost:3000/home
+* Search Result Page: http://localhost:3000/search/<search-query> (e.g. /search/chicken)
+* Main Category Page: http://localhost:3000/maincat/<category-name> (see Main and sub-categories of the items in inventory.json section for exact values)
+* Sub Category Page: http://localhost:3000/subcat/<category-name> (see the same section as above for exact values)
+* Compare Price Page (static): http://localhost:3000/compare
+* Detailed Item's Page (static and work-in-progress): http://localhost:3000/staticitem
+* Shopping Cart's Page (static and work-in-progress): http://localhost:3000/staticcart
+
+---
+
+## Note: the content below was the "old" development notes. It was kept here for the record and some information may be useful for a better understanding of our project!
+
+---
+
 ## How the data is stored:
 * Content of the **cart** is stored in `sessionStorage` with a key of `"cart"`, it is an array of JavaScript objects.
 * The list of selected stores is stored in `sessionStorage` with a key of `"sel-stores"`, it is an array of store ids (integers).
@@ -58,6 +131,12 @@ Just a list of integers representing store ids
   "Household",
   "Personal Care"
   ]
+  * **Exact values used in the `json` files and in the URL: ["produce",
+    "meat-seafood",
+    "dairy-eggs",
+    "beverage",
+    "household",
+    "personal-care"]**
 * Sub categories:
   * Produce: ["Fruit", "Vegetable"]
   * Meat and Seafood: ["Beef", "Chicken", "Mutton", "Pork", "Fish", "Seafood"]
@@ -65,6 +144,25 @@ Just a list of integers representing store ids
   * Beverage: ["Water", "Juice", "Alcohol"]
   * Household: ["Cleaning", "Laundry", "Bed & Bath"]
   * Personal Care: ["Baby Products", "Makeup", "Skin Care"]
+  * **Exact values used in the `json` files and in the URL: ["fruit",
+    "vegetable",
+    "beef",
+    "chicken",
+    "mutton",
+    "pork",
+    "seafood",
+    "milk",
+    "yogurt",
+    "eggs",
+    "water",
+    "juice",
+    "alcohol",
+    "cleaning",
+    "laundry",
+    "bed-bath",
+    "baby-products",
+    "makeup",
+    "skin-care"]**
 
 ## Updates:
 * main branch, 12/17:
@@ -120,22 +218,5 @@ to modify the repository (using password became deprecated in August of last yea
   - Anyways, the instructions are [here](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)
 
 
-## How to start and run the project
 
-If you have never installed node.js on your machine, install it [here](https://nodejs.org/en/download/). \
-You will need it to install packages and run the following `npm` commands.
-
-### Run `npm install` in the terminal (system and IDE terminals would both work)
-
-Installs all the needed packages in the dependencies.
-
-### Run `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the browser console.
-
-### To quit the application, press Ctrl + C in the terminal
 
