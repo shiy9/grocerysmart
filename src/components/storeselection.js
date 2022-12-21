@@ -172,7 +172,7 @@ const SelectedStores = styled.div`
   flex: 1;
 `;
 
-const StoreDisp = styled.div`
+const StoreDispWrapped = styled.div`
   margin-left: 15px;
   scroll-behavior: smooth;
   overflow-y: scroll;
@@ -203,7 +203,7 @@ const ZipcodeSection = styled.div`
   border-right: 2px solid black;
 `;
 
-const OneStore = ({ storeInfo, forceRefresh }) => {
+const OneStore = ({ storeInfo }) => {
   const [storeAdded, setStoreAdded] = useState(false);
 
   const toggleAdd = () => {
@@ -220,7 +220,6 @@ const OneStore = ({ storeInfo, forceRefresh }) => {
     }
     sessionStorage.setItem("sel-stores", JSON.stringify(selStores));
     setStoreAdded(!storeAdded);
-    // forceRefresh(true);
   };
   return (
     <OneStoreBase>
@@ -281,6 +280,33 @@ const OneStore = ({ storeInfo, forceRefresh }) => {
         </div>
       </StoreInfo>
     </OneStoreBase>
+  );
+};
+
+const StoreDisp = () => {
+  const [curList, setCurList] = useState([]);
+  let selStores =
+    sessionStorage.getItem("sel-stores") === null
+      ? []
+      : JSON.parse(sessionStorage.getItem("sel-stores"));
+  const keyGenerator = (s) => {
+    const curDate = new Date();
+    return s["store-id"] + s["store-name"] + curDate.getTime();
+  };
+
+  useEffect(() => {
+    setCurList(selStores);
+  }, [selStores]);
+  return (
+    <StoreDispWrapped>
+      {curList.map((s) => (
+        <StoreEntry key={keyGenerator(s)}>
+          {s["store-name"]} ({s["location"]}), distance: {s["distance"]},
+          delivery fee:{" "}
+          {s["delivery-fee"] === 0 ? "Free" : "$" + s["delivery-fee"]}
+        </StoreEntry>
+      ))}
+    </StoreDispWrapped>
   );
 };
 
@@ -370,13 +396,6 @@ export const StoreSelection = () => {
                   forceRefresh={setDummy}
                 ></OneStore>
               ))}
-              {/*<OneStore></OneStore>*/}
-              {/*<OneStore></OneStore>*/}
-              {/*<OneStore></OneStore>*/}
-              {/*<OneStore></OneStore>*/}
-              {/*<OneStore></OneStore>*/}
-              {/*<OneStore></OneStore>*/}
-              {/*<OneStore></OneStore>*/}
             </Stores>
           </ListBase>
           <MapContainer>
@@ -386,22 +405,7 @@ export const StoreSelection = () => {
         <SelectedDoneBtn>
           <SelectedStores>
             <SearchLabel>Selected Stores:</SearchLabel>
-            <StoreDisp>
-              {/*{curList.map((s) => (*/}
-              {/*  <StoreEntry key={keyGenerator(s)}>*/}
-              {/*    {s["store-name"]} ({s["location"]}), distance: {s["distance"]}*/}
-              {/*    , delivery fee:{" "}*/}
-              {/*    {s["delivery-fee"] === 0 ? "Free" : "$" + s["delivery-fee"]}*/}
-              {/*  </StoreEntry>*/}
-              {/*))}*/}
-              <StoreEntry>
-                Westside Market (110 Street), distance: 0.3 mi, delivery fee:
-                Free
-              </StoreEntry>
-              <StoreEntry>
-                Eden Market (178 Street), distance: 0.6 mi, delivery fee: Free
-              </StoreEntry>
-            </StoreDisp>
+            <StoreDisp></StoreDisp>
           </SelectedStores>
           <DoneBtnContainer>
             <Button
@@ -414,6 +418,7 @@ export const StoreSelection = () => {
                 width: "60%",
                 marginTop: "12px",
               }}
+              onClick={toHomePage}
             >
               Done! Start Shopping!
             </Button>

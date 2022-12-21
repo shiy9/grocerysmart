@@ -411,7 +411,7 @@ export const SearchResults = () => {
     "Personal Care",
   ];
   // const subCat = ["Beef", "Chicken", "Mutton", "Pork", "Fish", "Seafood"];
-  const subCat = ["Fruit", "Vegetable"]; // TODO: CHANGE!!! ONLY FOR DEMO
+  const subCat = ["Fruit", "Vegetable"];
 
   const dbToSubcat = {
     "meat-seafood": ["Beef", "Chicken", "Mutton", "Pork", "Fish", "Seafood"],
@@ -493,7 +493,7 @@ export const SearchResults = () => {
               <div key={idx}>
                 <SubCatButton
                   onClick={() => {
-                    history.push("/subcat/fruit"); // TODO: TEMPORARY! CHANGE THIS
+                    history.push("/subcat/fruit");
                   }}
                 >
                   <div>{cat}</div>
