@@ -58,13 +58,13 @@ Just a list of integers representing store ids
   "Household",
   "Personal Care"
   ]
-* Sub categories **(WORK IN PROGRESS)**:
+* Sub categories:
   * Produce: ["Fruit", "Vegetable"]
   * Meat and Seafood: ["Beef", "Chicken", "Mutton", "Pork", "Fish", "Seafood"]
-  * Dairy and Eggs:
-  * Beverage:
-  * Household
-  * Personal Care:
+  * Dairy and Eggs: ["Milk", "Yogurt", "Eggs"]
+  * Beverage: ["Water", "Juice", "Alcohol"]
+  * Household: ["Cleaning", "Laundry", "Bed & Bath"]
+  * Personal Care: ["Baby Products", "Makeup", "Skin Care"]
 
 ## Updates:
 * main branch, 12/17:

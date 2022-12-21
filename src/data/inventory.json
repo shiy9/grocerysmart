@@ -1,5 +1,149 @@
 [
   {
+    "store-id": 2,
+    "store-name": "Westside Market",
+    "location": "110 street",
+    "distance": "0.3 miles",
+    "delivery-fee": 0,
+    "items": [
+      {
+        "item-id": 3,
+        "item-name": "Pear",
+        "unit-price": 0.99,
+        "unit": "unit",
+        "tot-price": 0.99,
+        "num-sold": 9263,
+        "pic-dir": "pear.png",
+        "storeid": 2,
+        "sub-category": "fruit",
+        "main-category": "produce",
+        "type": "s"
+      },
+      {
+        "item-id": 4,
+        "item-name": "Strawberry, 1 box",
+        "unit-price": 14.99,
+        "unit": "box",
+        "tot-price": 14.99,
+        "num-sold": 9263,
+        "pic-dir": "strawberry.jpg",
+        "storeid": 2,
+        "sub-category": "fruit",
+        "main-category": "produce",
+        "type": "s"
+      },
+      {
+        "item-id": 0,
+        "item-name": "ANY Apples from Westside",
+        "unit-price": 2.99,
+        "unit": "lb",
+        "tot-price": 2.99,
+        "num-sold": 10000,
+        "pic-dir": "generic-apple.jpg",
+        "storeid": 2,
+        "sub-category": "fruit",
+        "main-category": "produce",
+        "type": "g"
+      },
+      {
+        "item-id": 1,
+        "item-name": "Fuji Apples, 1 lb",
+        "unit-price": 2.99,
+        "unit": "lb",
+        "tot-price": 2.99,
+        "num-sold": 8363,
+        "pic-dir": "fuji-apple.jpg",
+        "storeid": 2,
+        "sub-category": "fruit",
+        "main-category": "produce",
+        "type": "s"
+      },
+      {
+        "item-id": 2,
+        "item-name": "Gala Apples, 1 lb",
+        "unit-price": 3.99,
+        "unit": "lb",
+        "tot-price": 3.99,
+        "num-sold": 8271,
+        "pic-dir": "gala-apple.png",
+        "storeid": 2,
+        "sub-category": "fruit",
+        "main-category": "produce",
+        "type": "s"
+      }
+    ]
+  },
+  {
+    "store-id": 3,
+    "store-name": "Eden Market",
+    "location": "178 street",
+    "distance": "0.6 miles",
+    "delivery-fee": 0,
+    "items": [
+      {
+        "item-id": 1,
+        "item-name": "Golden Delicious Apples, 1 lb",
+        "unit-price": 4.99,
+        "unit": "lb",
+        "tot-price": 4.99,
+        "num-sold": 625,
+        "pic-dir": "golden-delicious-apple.png",
+        "storeid": 3,
+        "sub-category": "fruit",
+        "main-category": "produce",
+        "type": "s"
+      },
+      {
+        "item-id": 2,
+        "item-name": "Blueberries, 1 box",
+        "unit-price": 7.99,
+        "unit": "box",
+        "tot-price": 7.99,
+        "num-sold": 2863,
+        "pic-dir": "blueberry.jpeg",
+        "storeid": 3,
+        "sub-category": "fruit",
+        "main-category": "produce",
+        "type": "s"
+      },
+      {
+        "item-id": 3,
+        "item-name": "Kiwi, 12 ct",
+        "unit-price": 13.99,
+        "unit": "12ct",
+        "tot-price": 13.99,
+        "num-sold": 947,
+        "pic-dir": "kiwi.png",
+        "storeid": 3,
+        "sub-category": "fruit",
+        "main-category": "produce",
+        "type": "s"
+      }
+    ]
+  },
+  {
+    "store-id": 4,
+    "store-name": "Deli Grocery",
+    "location": "104 street",
+    "distance": "1.6 miles",
+    "delivery-fee": 1.99,
+    "items": [
+      {
+        "item-id": 1,
+        "item-name": "Mcintoch Apples, 1 lb",
+        "unit-price": 6.99,
+        "unit": "lb",
+        "tot-price": 6.99,
+        "num-sold": 9278,
+        "pic-dir": "mcintoch-apple.png",
+        "storeid": 4,
+        "sub-category": "fruit",
+        "main-category": "produce",
+        "type": "s"
+      }
+    ]
+  },
+  {
     "store-id": 0,
     "store-name": "Trader Joe's",
     "location": "123 street",
@@ -86,7 +230,7 @@
         "unit-price": 1.99,
         "unit": "unit",
         "tot-price": 1.99,
-        "num-sold": 273,
+        "num-sold": 827,
         "pic-dir": "honeycrisp-1.jpeg",
         "storeid": 1,
         "sub-category": "fruit",
@@ -122,36 +266,39 @@
     ]
   },
   {
-    "store-id": 2,
-    "store-name": "Westside Market",
-    "location": "110 street",
-    "distance": "0.3 miles",
-    "delivery-fee": 0,
-    "items": []
-  },
-  {
-    "store-id": 3,
-    "store-name": "Eden Market",
-    "location": "178 street",
-    "distance": "0.6 miles",
-    "delivery-fee": 0,
-    "items": []
-  },
-  {
-    "store-id": 4,
-    "store-name": "Deli Grocery",
-    "location": "104 street",
-    "distance": "1.6 miles",
-    "delivery-fee": 1.99,
-    "items": []
-  },
-  {
     "store-id": 5,
     "store-name": "Whole Food's",
     "location": "8th Ave",
     "distance": "2.6 miles",
     "delivery-fee": 2.99,
-    "items": []
+    "items": [
+      {
+        "item-id": 1,
+        "item-name": "Red Delicious Apples, 1 lb",
+        "unit-price": 1.99,
+        "unit": "lb",
+        "tot-price": 1.99,
+        "num-sold": 3625,
+        "pic-dir": "red-delicious-apple.jpeg",
+        "storeid": 5,
+        "sub-category": "fruit",
+        "main-category": "produce",
+        "type": "s"
+      },
+      {
+        "item-id": 1,
+        "item-name": "Granny Smith Apples, 1 lb",
+        "unit-price": 3.99,
+        "unit": "lb",
+        "tot-price": 3.99,
+        "num-sold": 9278,
+        "pic-dir": "granny-smith-apple.jpeg",
+        "storeid": 5,
+        "sub-category": "fruit",
+        "main-category": "produce",
+        "type": "s"
+      }
+    ]
   },
   {
     "store-id": 6,

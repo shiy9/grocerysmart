@@ -11,6 +11,7 @@ import Stack from "@mui/material/Stack";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { useHistory } from "react-router-dom";
 
 const PageBase = styled.div`
   display: inline;
@@ -28,7 +29,7 @@ const MainCatBase = styled.div`
   align-items: center;
 `;
 
-const MainCatButton = styled.button`
+const SubMainCatButton = styled.button`
   width: 14%;
   align-items: center;
   background: #ffffff;
@@ -319,12 +320,35 @@ const OneItem = ({ itemInfo }) => {
   );
 };
 
+const MainCatButton = ({ cat }) => {
+  const mainToDB = {
+    Produce: "produce",
+    "Meat and Seafood": "meat-seafood",
+    "Dairy and Eggs": "dairy-eggs",
+    Beverage: "beverage",
+    Household: "household",
+    "Personal Care": "personal-care",
+  };
+  const history = useHistory();
+  return (
+    <SubMainCatButton
+      onClick={() => {
+        history.push("/maincat/" + mainToDB[cat]);
+      }}
+    >
+      <div>{cat}</div>
+    </SubMainCatButton>
+  );
+};
+
 export const SubCategory = () => {
   const [category, setCategory] = useState("");
   const [mainCategoryDisp, setMainCategoryDisp] = useState("");
   const [avail, setAvail] = useState([]);
   const [unavail, setUnavail] = useState([]);
   const [hideSideBar, setHideSideBar] = useState(false);
+  const urlCat = window.location.href.split("/").pop();
+  const [mainCatDB, setMainCatDB] = useState("");
 
   const mainCat = [
     "Produce",
@@ -334,7 +358,10 @@ export const SubCategory = () => {
     "Household",
     "Personal Care",
   ];
-  const subCat = ["Beef", "Chicken", "Mutton", "Pork", "Fish", "Seafood"];
+  // const subCat = ["Beef", "Chicken", "Mutton", "Pork", "Fish", "Seafood"];
+  const subCat = ["Fruit", "Vegetable"];
+
+  // TODO: CHANGE!!! ONLY FOR DEMO!
 
   const mainCatDict = {
     produce: "Produce",
@@ -345,8 +372,13 @@ export const SubCategory = () => {
     "personal-care": "Personal Care",
   };
 
-  const mainSubMap = {
+  const dbToSubcat = {
     "meat-seafood": ["Beef", "Chicken", "Mutton", "Pork", "Fish", "Seafood"],
+    produce: ["Fruit", "Vegetable"],
+    "dairy-eggs": ["Milk", "Yogurt", "Eggs"],
+    beverage: ["Water", "Juice", "Alcohol"],
+    household: ["Cleaning", "Laundry", "Bed & Bath"],
+    "personal-care": ["Baby Products", "Makeup", "Skin Care"],
   };
 
   const subDict = {
@@ -358,7 +390,6 @@ export const SubCategory = () => {
   };
 
   useEffect(() => {
-    const category = window.location.href.split("/").pop();
     let tmp1 = [];
     let tmp2 = [];
     const invData = JSON.parse(JSON.stringify(inventory));
@@ -368,44 +399,39 @@ export const SubCategory = () => {
         tmp1 = tmp1.concat(
           store["items"].filter(
             (item) =>
-              item["sub-category"].toUpperCase() === category.toUpperCase()
+              item["sub-category"].toUpperCase() === urlCat.toUpperCase()
           )
         );
       } else {
         tmp2 = tmp2.concat(
           store["items"].filter(
             (item) =>
-              item["sub-category"].toUpperCase() === category.toUpperCase()
+              item["sub-category"].toUpperCase() === urlCat.toUpperCase()
           )
         );
       }
     });
 
-    for (let tmp in mainSubMap) {
-      let res = mainSubMap[tmp].filter(
+    for (let tmp in dbToSubcat) {
+      let res = dbToSubcat[tmp].filter(
         (sub) => sub.toUpperCase() === category.toUpperCase()
       );
       if (res.length !== 0) {
         setMainCategoryDisp(mainCatDict[tmp]);
+        setMainCatDB(tmp);
+        break;
       }
     }
     setCategory(category);
     setAvail(tmp1);
     setUnavail(tmp2);
-  }, []);
+  }, [urlCat]);
 
   return (
     <PageBase>
       <MainCatBase>
         {mainCat.map((cat, idx) => (
-          <MainCatButton
-            onClick={() => {
-              console.log("Clicked " + cat);
-            }}
-            key={idx}
-          >
-            <div>{cat}</div>
-          </MainCatButton>
+          <MainCatButton key={idx} cat={cat}></MainCatButton>
         ))}
       </MainCatBase>
       <MainBase>
@@ -468,7 +494,8 @@ export const SubCategory = () => {
         <MainContent>
           <FirstRow>
             <div>
-              {mainCategoryDisp} -- {subDict[category]}
+              {/*{mainCategoryDisp} -- {subDict[category]}*/}
+              Produce -- Fruit
             </div>
           </FirstRow>
           <ItemsContainer>
@@ -476,11 +503,11 @@ export const SubCategory = () => {
               <OneItem itemInfo={itemInfo} key={idx} />
             ))}
           </ItemsContainer>
-          <ItemsContainer>
-            {unavail.map((itemInfo, idx) => (
-              <OneItem itemInfo={itemInfo} key={idx} />
-            ))}
-          </ItemsContainer>
+          {/*<ItemsContainer>*/}
+          {/*  {unavail.map((itemInfo, idx) => (*/}
+          {/*    <OneItem itemInfo={itemInfo} key={idx} />*/}
+          {/*  ))}*/}
+          {/*</ItemsContainer>*/}
         </MainContent>
       </MainBase>
     </PageBase>

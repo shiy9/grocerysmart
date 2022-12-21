@@ -60,7 +60,7 @@ export const Welcome = () => {
   let history = useHistory();
 
   const redirect = () => {
-    history.push("/home");
+    history.push("/storeselect");
   };
 
   return (

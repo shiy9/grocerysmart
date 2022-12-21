@@ -56,7 +56,19 @@
                 "chicken",
                 "mutton",
                 "pork",
-                "seafood"
+                "seafood",
+                "milk",
+                "yogurt",
+                "eggs",
+                "water",
+                "juice",
+                "alcohol",
+                "cleaning",
+                "laundry",
+                "bed-bath",
+                "baby-products",
+                "makeup",
+                "skin-care"
               ]
             },
             "main-category": {

@@ -310,7 +310,7 @@ export const StoreSelection = () => {
   };
 
   const toHomePage = () => {
-    history.push("/");
+    history.push("/home");
   };
 
   return (
@@ -320,13 +320,7 @@ export const StoreSelection = () => {
           <FirRowLeft>Choose Shopping Method:</FirRowLeft>
           <FirRowRight>
             <Link to={"/nowhere"}>How this works?</Link>
-            <IconButton
-              color="primary"
-              aria-label="close"
-              onClick={() => {
-                console.log("Close store selection");
-              }}
-            >
+            <IconButton color="primary" aria-label="close" onClick={toHomePage}>
               <HighlightOffIcon fontSize={"large"} />
             </IconButton>
           </FirRowRight>
@@ -393,27 +387,19 @@ export const StoreSelection = () => {
           <SelectedStores>
             <SearchLabel>Selected Stores:</SearchLabel>
             <StoreDisp>
-              {curList.map((s) => (
-                <StoreEntry key={keyGenerator(s)}>
-                  {s["store-name"]} ({s["location"]}), distance: {s["distance"]}
-                  , delivery fee:{" "}
-                  {s["delivery-fee"] === 0 ? "Free" : "$" + s["delivery-fee"]}
-                </StoreEntry>
-              ))}
+              {/*{curList.map((s) => (*/}
+              {/*  <StoreEntry key={keyGenerator(s)}>*/}
+              {/*    {s["store-name"]} ({s["location"]}), distance: {s["distance"]}*/}
+              {/*    , delivery fee:{" "}*/}
+              {/*    {s["delivery-fee"] === 0 ? "Free" : "$" + s["delivery-fee"]}*/}
+              {/*  </StoreEntry>*/}
+              {/*))}*/}
               <StoreEntry>
-                Trader Joe’s (2nd Street), distance: xxx mi, delivery fee: $x.xx
+                Westside Market (110 Street), distance: 0.3 mi, delivery fee:
+                Free
               </StoreEntry>
               <StoreEntry>
-                Trader Joe’s (2nd Street), distance: xxx mi, delivery fee: $x.xx
-              </StoreEntry>
-              <StoreEntry>
-                Trader Joe’s (2nd Street), distance: xxx mi, delivery fee: $x.xx
-              </StoreEntry>
-              <StoreEntry>
-                Trader Joe’s (2nd Street), distance: xxx mi, delivery fee: $x.xx
-              </StoreEntry>
-              <StoreEntry>
-                Trader Joe’s (2nd Street), distance: xxx mi, delivery fee: $x.xx
+                Eden Market (178 Street), distance: 0.6 mi, delivery fee: Free
               </StoreEntry>
             </StoreDisp>
           </SelectedStores>
@@ -483,9 +469,7 @@ export const StoreSelection = () => {
                   fontWeight: "700",
                   fontSize: "14px",
                 }}
-                onClick={() => {
-                  console.log("Entered zipcode");
-                }}
+                onClick={toHomePage}
               >
                 Enter
               </Button>
@@ -503,6 +487,7 @@ export const StoreSelection = () => {
               width: "40%",
               marginTop: "12px",
             }}
+            onClick={toHomePage}
           >
             Just browsing prices!
           </Button>
