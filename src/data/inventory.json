@@ -322,9 +322,9 @@
       {
         "item-id": 1,
         "item-name": "Bananas (Dozen)",
-        "unit-price": 3.99,
+        "unit-price": 4.99,
         "unit": "unit",
-        "tot-price": 3.99,
+        "tot-price": 4.99,
         "num-sold": 800,
         "pic-dir": "banana-1.jpg",
         "storeid": 0,

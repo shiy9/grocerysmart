@@ -1,0 +1,107 @@
+{
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "store-id": {
+        "type": "integer"
+      },
+      "store-name": {
+        "type": "string"
+      },
+      "location": {
+        "type": "string"
+      },
+      "distance": {
+        "type": "string"
+      },
+      "delivery-fee": {
+        "type": "number"
+      },
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "item-id": {
+              "type": "integer"
+            },
+            "item-name": {
+              "type": "string"
+            },
+            "unit-price": {
+              "type": "number"
+            },
+            "unit": {
+              "type": "string"
+            },
+            "tot-price": {
+              "type": "number"
+            },
+            "num-sold": {
+              "type": "integer"
+            },
+            "pic-dir": {
+              "type": "string"
+            },
+            "storeid": {
+              "type": "integer"
+            },
+            "sub-category": {
+              "type": "string",
+              "enum": [
+                "fruit",
+                "vegetable",
+                "beef",
+                "chicken",
+                "mutton",
+                "pork",
+                "seafood"
+              ]
+            },
+            "main-category": {
+              "type": "string",
+              "enum": [
+                "produce",
+                "meat-seafood",
+                "dairy-eggs",
+                "beverage",
+                "household",
+                "personal-care"
+              ]
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "g",
+                "s"
+              ]
+            }
+          },
+          "required": [
+            "item-id",
+            "item-name",
+            "unit",
+            "unit-price",
+            "tot-price",
+            "num-sold",
+            "pic-dir",
+            "storeid",
+            "sub-category",
+            "main-category",
+            "type"
+          ]
+        },
+        "uniqueItems": true
+      }
+    },
+    "required": [
+      "store-name",
+      "location",
+      "distance",
+      "delivery-fee",
+      "items"
+    ]
+  },
+  "uniqueItems": true
+}

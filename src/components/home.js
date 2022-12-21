@@ -8,7 +8,7 @@ import { useState } from "react";
 import { Routes, Route, useNavigate, useHistory } from "react-router-dom";
 
 const HomeBase = styled.div`
-  display: flex;
+  display: inline;
   justify-content: center;
   grid-area: main;
   font-size: 25px;
@@ -129,7 +129,6 @@ export const Home = () => {
           textAlign: "center",
           alignItems: "center",
           justifyContent: "center",
-          position: "fixed",
         }}
       >
         <div
@@ -167,10 +166,6 @@ export const Home = () => {
 
         <img src="home.png" width="70%" height="70%" />
       </div>
-
-      {/* <img src="src/data/images/home.jpeg" height="400" width="500"/> */}
-
-      {/* <h2>This is home page test commit</h2> */}
     </HomeBase>
   );
 };

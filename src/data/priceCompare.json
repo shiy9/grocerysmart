@@ -1,0 +1,108 @@
+[
+  {
+    "store-id": 0,
+    "store-name": "Trader Joe's",
+    "location": "123 street",
+    "distance": "1.2 miles",
+    "delivery-fee": 4.99,
+    "items": [
+      {
+        "item-id": 1,
+        "item-name": "Bananas (Dozen)",
+        "unit-price": 4.99,
+        "unit": "unit",
+        "tot-price": 4.99,
+        "num-sold": 800,
+        "pic-dir": "banana-1.jpg",
+        "storeid": 0,
+        "sub-category": "fruit",
+        "main-category": "produce",
+        "type": "g"
+      },
+      {
+        "item-id": 2,
+        "item-name": "Honeycrisp Apples",
+        "unit-price": 2.99,
+        "unit": "unit",
+        "tot-price": 2.99,
+        "num-sold": 273,
+        "pic-dir": "honeycrisp-1.jpeg",
+        "storeid": 0,
+        "sub-category": "fruit",
+        "main-category": "produce",
+        "type": "g"
+      }
+    ]
+  },
+  {
+    "store-id": 1,
+    "store-name": "Westside",
+    "location": "445 street",
+    "distance": "2.2 miles",
+    "delivery-fee": 3.99,
+    "items": [
+      {
+        "item-id": 5,
+        "item-name": "Bananas (Dozen)",
+        "unit-price": 2.99,
+        "unit": "unit",
+        "tot-price": 2.99,
+        "num-sold": 800,
+        "pic-dir": "banana-1.jpg",
+        "storeid": 1,
+        "sub-category": "fruit",
+        "main-category": "produce",
+        "type": "g"
+      },
+      {
+        "item-id": 6,
+        "item-name": "Honeycrisp Apples",
+        "unit-price": 1.99,
+        "unit": "unit",
+        "tot-price": 1.99,
+        "num-sold": 273,
+        "pic-dir": "honeycrisp-1.jpeg",
+        "storeid": 1,
+        "sub-category": "fruit",
+        "main-category": "produce",
+        "type": "g"
+      }
+    ]
+  }
+  ,
+  {
+    "store-id": 2,
+    "store-name": "Whole Foods",
+    "location": "445 street",
+    "distance": "2.2 miles",
+    "delivery-fee": 3.99,
+    "items": [
+      {
+        "item-id": 5,
+        "item-name": "Bananas (Dozen)",
+        "unit-price": 3.99,
+        "unit": "unit",
+        "tot-price": 3.99,
+        "num-sold": 800,
+        "pic-dir": "banana-1.jpg",
+        "storeid": 1,
+        "sub-category": "fruit",
+        "main-category": "produce",
+        "type": "g"
+      },
+      {
+        "item-id": 6,
+        "item-name": "Honeycrisp Apples",
+        "unit-price": 1.99,
+        "unit": "unit",
+        "tot-price": 1.99,
+        "num-sold": 273,
+        "pic-dir": "honeycrisp-1.jpeg",
+        "storeid": 1,
+        "sub-category": "fruit",
+        "main-category": "produce",
+        "type": "g"
+      }
+    ]
+  }
+]
