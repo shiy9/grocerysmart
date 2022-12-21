@@ -8,7 +8,7 @@ import  {useState} from 'react'
 import {Routes, Route, useNavigate,useHistory} from 'react-router-dom';
 
 const HomeBase = styled.div`
-  display: flex;
+  display: inline;
   justify-content: center;
   grid-area: main;
   font-size: 25px;
@@ -20,6 +20,7 @@ const MainCatBase = styled.div`
   width: 100%;
   min-height: 66px;
   align-items: center;
+  
 `;
 
 const MainCatButton = styled.button`
@@ -94,7 +95,7 @@ export const Home = () => {
                         <div>{cat}</div>
                     </MainCatButton>))}
             </MainCatBase>
-            <div style={{display:"flex", flexDirection:"column",height: "80%",width:"100%",textAlign: "center",alignItems:"center",justifyContent:"center",position: "fixed"}}>
+            <div style={{display:"flex", flexDirection:"column",height: "80%",width:"100%",textAlign: "center",alignItems:"center",justifyContent:"center"}}>
             
             <div style={{display:"flex", flexFlow:"row wrap",width: "100%", textAlign: "center", marginTop: "10%",fontFamily:"inter",marginBottom:"3%",marginLeft:'20%'}}>
             

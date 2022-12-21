@@ -1,0 +1,26 @@
+[
+  {
+    "item-name": "Bananas (Dozen)",
+    "unit-price": 3.99,
+    "unit": "unit",
+    "tot-price": 3.99,
+    "num-sold": 800,
+    "pic-dir": "banana-1.jpg",
+    "storeid": 1,
+    "sub-category": "fruit",
+    "main-category": "produce",
+    "type": "g"
+  },
+  {
+    "item-name": "Honeycrisp Apples",
+    "unit-price": 1.99,
+    "unit": "unit",
+    "tot-price": 1.99,
+    "num-sold": 273,
+    "pic-dir": "honeycrisp-1.jpeg",
+    "storeid": 1,
+    "sub-category": "fruit",
+    "main-category": "produce",
+    "type": "g"
+  }
+]

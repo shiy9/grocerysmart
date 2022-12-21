@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Button from '@mui/material/Button';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import inventory from "../data/inventory.json"
+import priceCompare from "../data/priceCompare.json"
 import cart from "../data/cart.json"
 import selStores from "../data/selected-stores.json"
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
@@ -11,7 +12,7 @@ import Stack from '@mui/material/Stack';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import {createTheme, ThemeProvider} from '@mui/material/styles';
 import {Routes, Route, useNavigate,useHistory} from 'react-router-dom';
-import { AlignHorizontalLeft } from "@mui/icons-material";
+import { AlignHorizontalLeft, Diversity1 } from "@mui/icons-material";
 // import Table from 'react-bootstrap/Table';
 
 
@@ -22,6 +23,8 @@ const HomeBase = styled.div`
   justify-content: center;
   grid-area: main;
   font-size: 25px;
+  background: hsla(202, 54%, 94%, 1);
+  height: 100vh;
 `;
 
 const BackButton = styled.button`
@@ -46,9 +49,65 @@ const hideBtnStyle = {
   borderCcolor: "hsla(205, 83%, 30%, 1)",
   textTransform:"none"
 };
+const deleteBtnStyle = {
+  marginLeft:'20%',
+  marginTop:'60%',
+  backgroundColor: "hsla(205, 86%, 80%, 1)",
+  borderRadius: "100px",
+  // width: "15%",
+  height:'40px',
+  width:'41px',
+  textColor: "black",
+  alignItems:'flex-start',
+  borderCcolor: "hsla(205, 83%, 30%, 1)",
+  textTransform:"none",
+  marginBottom: "100px"
+};
+const storeBtnStyle = {
+  backgroundColor: "hsla(205, 86%, 80%, 1)",
+  borderRadius: "15px",
+  width: "50%",
+  textColor: "black",
+  alignItems:'justified',
+  textTransform:"none",
+  borderCcolor: "hsla(205, 83%, 30%, 1)",
+  marginLeft:"25%",
+  marginBottom:'10px',
+  marginTop:'4%'
+  
+
+};
+const backBtnStyle = {
+  backgroundColor: "hsla(0, 86%, 44%, 1)  ",
+  borderRadius: "15px",
+  width: "50",
+  textColor: "white",
+  alignItems:'justified',
+  borderCcolor: "hsla(205, 83%, 30%, 1)",
+  textTransform:"none",
+  marginLeft:"25%",
+  marginBottom:'10px',
+  color:'white',
+  
+
+};
+const checkoutBtnStyle = {
+  backgroundColor: "hsla(119, 67%, 43%, 0.59)",
+  borderRadius: "15px",
+  width: "50",
+  textColor: "hsla(0, 0%, 100%, 1)",
+  alignItems:'justified',
+  borderCcolor: "hsla(205, 83%, 30%, 1)",
+  textTransform:"none",
+  marginLeft:"25%",
+  marginBottom:'10px',
+  color:'white'
+
+};
 const ItemsContainer = styled.div`
   display: flex;
-  flex-wrap: wrap;
+  
+  // flex-wrap: wrap;
   // margin-top: 20px;
   // margin-left: 10px;
   // margin-top: 10%;
@@ -56,7 +115,7 @@ const ItemsContainer = styled.div`
 const OneItDisplay = styled.div`
   //width: 24%;
   width: 300px;
-  height: 250px;
+  height: 200px;
   margin-bottom: 10px;
   margin-left: 5px;
   margin-right: 5px;
@@ -69,11 +128,12 @@ const PictureContainer = styled.div`
   align-items: center;
   width: 300px;
   height: 220px;
+  
 `;
 
 const PictureDisplay = styled.img`
   max-width: 100%;
-  max-height: 80%;
+  height: 80%;
 `;
 
 const ItemTitle = styled.div`
@@ -90,6 +150,7 @@ const PriceDisplay = styled.div`
   margin-left: 17px;
   margin-bottom: 15px;
   align-items: center;
+  
 `;
 
 const TotalPrice = styled.div`
@@ -98,38 +159,27 @@ const TotalPrice = styled.div`
   font-weight: 700;
   color: #CF1010;
   text-align: left;
-`;
-
-const UnitPrice = styled.div`
-  flex: 3;
-  font-size: 15px;
-  font-weight: 700;
-  color: #505050;
-  text-align: left;
-`;
-
-const ItemDetails = styled.div`
-  font-size: 13px;
-  font-weight: 400;
-  margin-left: 17px;
-  margin-bottom: 15px;
-`;
+`
 const OneItem = ({itemInfo}) => {
+  itemInfo=itemInfo[0]
+  console.log('I am in item info')
   console.log(itemInfo)
   // console.log('Hia an here')
   const invData = JSON.parse(JSON.stringify(inventory));
   return (
    
-      <OneItDisplay style={{backgroundColor:'hsla(206, 47%, 74%, 1)'}}>
+      <OneItDisplay style={{backgroundColor:'white', display:'flex',flexdirection:'row'}}>
           <PictureContainer>
               <PictureDisplay src={require("../data/images/" + itemInfo["pic-dir"])}></PictureDisplay>
           </PictureContainer>
+          <div style={{display:'flex', flexDirection:'column',alignContent:'center',marginTop:'20%'}}>
           <ItemTitle>{itemInfo["item-name"]}</ItemTitle>
           <PriceDisplay>
               <TotalPrice>${itemInfo["tot-price"]}</TotalPrice>
               
           </PriceDisplay>
-          <Stack
+          </div>
+          {/* <Stack
               direction="row"
               justifyContent="flex-end"
               alignItems="center"
@@ -138,31 +188,64 @@ const OneItem = ({itemInfo}) => {
           >
               
                   
-          </Stack>
+          </Stack> */}
       </OneItDisplay>
  
   )
 };
-const AddDiv =() => {
-  return (
-    <div></div>
+const addDeleteButton=() => {
+  return(
+    
+    <Button style={deleteBtnStyle}> - </Button>
   );
 };
-const store_map =(store_cart,store_num,cart_num) =>{
+const addDelete =(store_num) => {
   let temp=[]
-  for (let i=0;i<cart_num;i++){
+  for (let i=0;i<store_num;i++){
     
-    for (let j=0;j<store_num;j++){
-      console.log('in store_map')
-       temp.push(store_cart[j][i].map((itemInfo, idx) => <OneItem itemInfo={itemInfo} key={idx}/>))
-    //  temp.push(OneItem(store_cart[j][i][0]))
+
+
+       temp.push(addDeleteButton())
+   
+
     }
-    temp.push(<AddDiv key={i}/>)
+  
+  
+  
+  return (
+    <div style={{display:'flex',flexDirection:'column'}}>
+      {temp}
+    </div>
+  );
+};
+const AddDiv =(store_cart,store_name,total) => {
+  
+  console.log("-----in add Div",store_cart)
+  return (
+    <div>
+    <div style={{disply:'flex',flexDirection:'row',background:'white',marginLeft:'3px'}}>
+      <Button style={storeBtnStyle} > {store_name}</Button>
+      {store_cart.map((itemInfo, idx) => <OneItem itemInfo={itemInfo} key={idx}/>)}
+      
+    </div>
+     <div style={{color:'red',alignContent:'center',marginLeft:'40%'}}>${total}</div>
+     </div>
+  );
+};
+const store_map =(store_cart,store_num,cart_num,storeData,invData,total) =>{
+  let temp=[]
+  for (let i=0;i<store_num;i++){
+    
+
+
+       temp.push(AddDiv(store_cart[i],invData[storeData[i]]['store-name'],total[i]))
+   
 
     }
     console.log(temp)
     return temp;
   }
+
 
 export const Compare = () => {
 
@@ -172,69 +255,75 @@ export const Compare = () => {
         const redirect = () => {
           history.push('/')
         }
-        const cartData = JSON.parse(JSON.stringify(cart));
-        const storeData = JSON.parse(JSON.stringify(selStores));
-        const invData = JSON.parse(JSON.stringify(inventory));
-        const cartCompare=new Array(storeData.length) 
-        let store_cart = new Array(storeData.length);
-        for (let i=0;i<cartData.length;i++){
-          store_cart[i]=new Array(cartData.length)
+        // const cartData = JSON.parse(JSON.stringify(cart));
+         const cartData = JSON.parse(JSON.stringify(cart));
+        
+        
+        
+        const cartCompare=JSON.parse(JSON.stringify(priceCompare));
+        const invData = cartCompare;
+        const storeData = new Array(invData.length);
+        for (let i=0;i<storeData.length;i++){
+          storeData[i]=i
         }
-        let x=0;
-        // console.log(cartData)
+        console.log('storee',storeData)
+        let store_cart = new Array(storeData.length);
+        let total = new Array(storeData.length);
+        for (let i=0;i<storeData.length;i++){
+          total[i]=0
+        }
+        for (let i=0;i<storeData.length;i++){
+          store_cart[i]=[]
+        }
+        
+     
         for (let i=0;i<cartData.length;i++){
           for (let j=0;j<storeData.length;j++){
           if(invData[storeData[j]]['items'].filter(item => item["item-name"].includes(cartData[i]['item-name']))){
-          // store_cart[j][i]
-          
-          // .filter(item => item["item-name"].includes(cartData[i]['item-name']))));
-          store_cart[j][i]=invData[storeData[j]]["items"].filter(item => item["item-name"].includes(cartData[i]['item-name']));
-        x=1;  
+            total[j]=total[j]+invData[storeData[j]]["items"].filter(item => item["item-name"].includes(cartData[i]['item-name']))[0]['tot-price'];
+        
+          store_cart[j].push(invData[storeData[j]]["items"].filter(item => item["item-name"].includes(cartData[i]['item-name'])));
         }
           else 
-          store_cart[j][i]=null;
+          store_cart[j].push([{'pic-dir':"none.png",'item-name':" ","tot-price":0}])
+          
           }
 
         }
-        // console.log(store_map(store_cart,2,2))
-        // console.log(store_cart[0][0][0]['pic-dir'])
-        // for (i in cartData)
-        // for (let id in storeData){}
-        // for (let id in cartData) {
-        //     if (storeData.includes(id)) {
-        //         tmp1 = tmp1.concat(invData[id]["items"].filter(item => item["item-name"].toUpperCase().includes(searchItem.toUpperCase())));
-        //     } else {
-        //         tmp2 = tmp2.concat(invData[id]["items"].filter(item => item["item-name"].toUpperCase().includes(searchItem.toUpperCase())));
-        //     }
-        // }
-  
+        console.log('total:',total)
+      
 
+
+       
     
     return (
       <HomeBase>
-        <div style={{display:'flex',marginTop:'3%',marginLeft:'3%'}}>
-        <div style={{width: "50%",backgroundColor:'yellow'}}>
+        <div style={{display:'flex',flexDirection:'row',marginTop:'-5%',marginLeft:'3%'}}>
+        <div style={{width: "50%"}}>
                         <Button style={hideBtnStyle} startIcon={<ChevronLeftIcon/>}>Cart</Button>
                         </div>
-      <div style={{width: "110%",backgroundColor:'red'}}>
+      <div style={{width: "110%"}}>
       Please select the store that you prefer
       </div></div> 
-       <div style={{flex:'5',backgroundColor:'blue'}}> 
-        yes
-       <ItemsContainer style={{backgroundColor:'blue'}}>
+       <div>  
+                        <ItemsContainer id='main' style={{ display:'flex',flexDirection:'row',width:'100%',marginTop:'2%',alignSelf:'center',alignItems:'center',marginLeft:'10%'}}>
+                         <div style={{alignSelf:'flex-end'}}>Total:</div> 
+                        
                         { 
                         // store_cart[0].map(item ).map((itemInfo, idx) => <OneItem itemInfo={itemInfo} key={idx}/>)}
-                        store_map(store_cart,1,2)
+                        store_map(store_cart,storeData.length,cartData.length,storeData,invData,total)
                         }
-                        </ItemsContainer> 
-                        <ItemsContainer style={{backgroundColor:'blue'}}>
-                        { 
-                        // store_cart[0].map(item ).map((itemInfo, idx) => <OneItem itemInfo={itemInfo} key={idx}/>)}
-                        store_map(store_cart,2,2)
-                        }
+                         {addDelete(cart.length)}
                         </ItemsContainer> 
                         </div>
-                      
+                        {/* <div style={{width: "50%",display:'flex',marginLeft:'25%',flexDirection:'row'}}>total:{totalCal(total)}</div> */}
+                        <div style={{display:'flex',flexDirection:'row',marginLeft:'3%',marginTop:'3%'}}>
+        <div style={{width: "50%",textColor:"white",marginLeft:'25%'}}>
+                        <Button style={backBtnStyle}>Back</Button>
+                        <Button style={checkoutBtnStyle}>Checkout</Button>
+
+                        </div>
+                        </div>
                         
       </HomeBase>
     )
