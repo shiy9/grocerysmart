@@ -14,6 +14,7 @@ import RoomIcon from "@mui/icons-material/Room";
 import Button from "@mui/material/Button";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Divider from "@mui/material/Divider";
+import { accordionSummaryClasses } from "@mui/material";
 
 const PageBase = styled.div`
   margin: 30px 20px 30px 20px;
@@ -284,7 +285,6 @@ const OneStore = ({ storeInfo }) => {
 };
 
 const StoreDisp = () => {
-  const [curList, setCurList] = useState([]);
   let selStores =
     sessionStorage.getItem("sel-stores") === null
       ? []
@@ -294,12 +294,9 @@ const StoreDisp = () => {
     return s["store-id"] + s["store-name"] + curDate.getTime();
   };
 
-  useEffect(() => {
-    setCurList(selStores);
-  }, [selStores]);
   return (
     <StoreDispWrapped>
-      {curList.map((s) => (
+      {selStores.map((s) => (
         <StoreEntry key={keyGenerator(s)}>
           {s["store-name"]} ({s["location"]}), distance: {s["distance"]},
           delivery fee:{" "}
@@ -326,16 +323,22 @@ export const StoreSelection = () => {
     setStoreDisp(invData);
   }, []);
 
-  useEffect(() => {
-    setDummy(false);
-  }, [dummy]);
-
   const keyGenerator = (s) => {
     const curDate = new Date();
     return s["store-id"] + s["store-name"] + curDate.getTime();
   };
 
   const toHomePage = () => {
+    history.push("/home");
+  };
+
+  const addAllThenHome = () => {
+    let selStores = [];
+    invData.forEach((s) => {
+      selStores.push(s["store-id"]);
+    });
+    console.log(selStores);
+    sessionStorage.setItem("sel-stores", JSON.stringify(selStores));
     history.push("/home");
   };
 
@@ -393,7 +396,8 @@ export const StoreSelection = () => {
                 <OneStore
                   key={keyGenerator(s)}
                   storeInfo={s}
-                  forceRefresh={setDummy}
+                  dummy={dummy}
+                  setDummy={setDummy}
                 ></OneStore>
               ))}
             </Stores>
@@ -405,7 +409,7 @@ export const StoreSelection = () => {
         <SelectedDoneBtn>
           <SelectedStores>
             <SearchLabel>Selected Stores:</SearchLabel>
-            <StoreDisp></StoreDisp>
+            <StoreDisp dummy={dummy}></StoreDisp>
           </SelectedStores>
           <DoneBtnContainer>
             <Button
@@ -492,7 +496,7 @@ export const StoreSelection = () => {
               width: "40%",
               marginTop: "12px",
             }}
-            onClick={toHomePage}
+            onClick={addAllThenHome}
           >
             Just browsing prices!
           </Button>

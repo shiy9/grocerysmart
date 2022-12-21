@@ -107,6 +107,12 @@ export const Home = () => {
     history.push("/search/" + searchInput);
   };
 
+  const submitHandler = (e) => {
+    if (e.key === "Enter") {
+      history.push("/search/" + searchInput);
+    }
+  };
+
   return (
     <HomeBase>
       <MainCatBase>
@@ -151,6 +157,7 @@ export const Home = () => {
             }}
             onChange={handleChange}
             value={searchInput}
+            onKeyDown={submitHandler}
           />
 
           <Button style={srchBtnStyle} onClick={redirect}>
