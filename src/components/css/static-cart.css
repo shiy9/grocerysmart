@@ -1,0 +1,139 @@
+.App {
+    height: 20px;
+    padding: 20px;
+}
+
+.left_layout{
+    white-space: nowrap;
+    display: inline-block;
+    vertical-align:top;
+}
+
+.right_layout{
+    white-space: nowrap;
+    display: inline-block;
+    vertical-align:top;
+}
+
+.generic_specific_text{
+    display: block;
+    background-color: #ECECEC;
+    width: 310px;
+    font-weight: bold;
+    font-size: 25px;
+    text-align: left;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+.generic{
+    display: block;
+    border-style: solid;
+    border-width: 1.5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 160px;
+    height:200px;
+    width: 600px;
+}
+
+.specific_grocery_store{
+    display: block;
+    background-color: rgb(236, 208, 212);
+    width: 120px;
+    font-weight: bold;
+    font-size: 15px;
+    color: aliceblue;
+    text-align: left;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 5px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.specific{
+    display: block;
+    border-style: solid;
+    border-width: 1.5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height:200px;
+    width: 600px;
+}
+
+.img_setting{
+    width: 120px;
+    height: 110px;
+    padding: 40px;
+    vertical-align:top;
+}
+
+.text_position{
+    white-space: nowrap;
+    display: inline-block;
+}
+
+.item_text{
+    display: block;
+    line-height: 80px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.price_text{
+    display: block;
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    background-color: brown;
+    color: azure;
+    text-align: center;
+    font-weight: bold;
+}
+
+.button_add_item{
+    height: 60px;
+    font-size: 15px;
+    margin-top: 30px;;
+    margin-left: 250px;
+    width: 320px;
+    background-color:#F8DC7B;
+}
+
+.button_compare_price{
+    height: 60px;
+    font-size: 15px;
+    margin-top: 30px;;
+    margin-left: 250px;
+    margin-bottom: 10px;
+    width: 320px;
+    background-color:#A1DFC9;
+}
+
+.rubishbox{
+    margin-left: 20px;
+    width:30px;
+    height:30px;
+}
+
+.heart{
+    margin-left: 8px;
+    width:30px;
+    height:30px;
+}
+
+.select_text{
+    border: 1px solid black;
+    width: 60px;
+    height: 40px;
+    background-color: #ECECEC;
+}
+
+.select_number{
+    margin-left: 200px;
+    font-size: 20px;
+    width: 100px;
+}

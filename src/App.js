@@ -13,6 +13,8 @@ import { Welcome } from "./components/welcome";
 import { Compare } from "./components/compare";
 import { StoreSelection } from "./components/storeselection";
 import { NoWhere } from "./components/nowhere";
+import StaticItem from "./components/static-item";
+import StaticCart from "./components/static-cart";
 
 const GridBase = styled.div`
   display: grid;
@@ -47,6 +49,8 @@ function App() {
         <Route path="/maincat/:cat" render={() => <MainCategory />} />
         <Route path="/subcat/:cat" render={() => <SubCategory />} />
         <Route path="/compare" render={() => <Compare />} />
+        <Route path="/staticitem" render={() => <StaticItem />} />
+        <Route path="/staticcart" render={() => <StaticCart />} />
         <Route path="/nowhere" render={() => <NoWhere />} />
       </GridBase>
     </BrowserRouter>

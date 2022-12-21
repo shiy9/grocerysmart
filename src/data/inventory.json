@@ -70,6 +70,84 @@
         "sub-category": "fruit",
         "main-category": "produce",
         "type": "s"
+      },
+      {
+        "item-id": 5,
+        "item-name": "Broccoli",
+        "unit-price": 3.99,
+        "unit": "lb",
+        "tot-price": 3.99,
+        "num-sold": 1726,
+        "pic-dir": "broccoli.png",
+        "storeid": 2,
+        "sub-category": "vegetable",
+        "main-category": "produce",
+        "type": "s"
+      },
+      {
+        "item-id": 6,
+        "item-name": "Cabbage",
+        "unit-price": 4.99,
+        "unit": "lb",
+        "tot-price": 4.99,
+        "num-sold": 8126,
+        "pic-dir": "cabbage.jpg",
+        "storeid": 2,
+        "sub-category": "vegetable",
+        "main-category": "produce",
+        "type": "s"
+      },
+      {
+        "item-id": 7,
+        "item-name": "Clorox wipes",
+        "unit-price": 4.99,
+        "unit": "unit",
+        "tot-price": 4.99,
+        "num-sold": 826,
+        "pic-dir": "clorox.png",
+        "storeid": 2,
+        "sub-category": "cleaning",
+        "main-category": "household",
+        "type": "s"
+      },
+      {
+        "item-id": 8,
+        "item-name": "Tide Detergent",
+        "unit-price": 34.99,
+        "unit": "unit",
+        "tot-price": 34.99,
+        "num-sold": 846,
+        "pic-dir": "laundry-1.png",
+        "storeid": 2,
+        "sub-category": "laundry",
+        "main-category": "household",
+        "type": "s"
+      },
+      {
+        "item-id": 9,
+        "item-name": "Tide Pods",
+        "unit-price": 24.99,
+        "unit": "unit",
+        "tot-price": 24.99,
+        "num-sold": 874,
+        "pic-dir": "Tidepods.jpg",
+        "storeid": 2,
+        "sub-category": "laundry",
+        "main-category": "household",
+        "type": "s"
+      },
+      {
+        "item-id": 10,
+        "item-name": "Body Wash",
+        "unit-price": 9.99,
+        "unit": "unit",
+        "tot-price": 9.99,
+        "num-sold": 872,
+        "pic-dir": "bodywash.jpg",
+        "storeid": 2,
+        "sub-category": "bed-bath",
+        "main-category": "household",
+        "type": "s"
       }
     ]
   },
@@ -118,6 +196,71 @@
         "sub-category": "fruit",
         "main-category": "produce",
         "type": "s"
+      },
+      {
+        "item-id": 4,
+        "item-name": "Mutton, 2 lbs",
+        "unit-price": 10.99,
+        "unit": "lb",
+        "tot-price": 21.98,
+        "num-sold": 212,
+        "pic-dir": "mutton.jpeg",
+        "storeid": 3,
+        "sub-category": "mutton",
+        "main-category": "meat-seafood",
+        "type": "s"
+      },
+      {
+        "item-id": 5,
+        "item-name": "Pork Rind, 2 lbs",
+        "unit-price": 10.99,
+        "unit": "lb",
+        "tot-price": 21.98,
+        "num-sold": 1827,
+        "pic-dir": "pork-rind.jpg",
+        "storeid": 3,
+        "sub-category": "pork",
+        "main-category": "meat-seafood",
+        "type": "s"
+      },
+      {
+        "item-id": 6,
+        "item-name": "Baby wipes",
+        "unit-price": 9.99,
+        "unit": "unit",
+        "tot-price": 9.99,
+        "num-sold": 2736,
+        "pic-dir": "babywipes.png",
+        "storeid": 3,
+        "sub-category": "baby-products",
+        "main-category": "personal-care",
+        "type": "s"
+      },
+      {
+        "item-id": 7,
+        "item-name": "Eye liner",
+        "unit-price": 9.99,
+        "unit": "unit",
+        "tot-price": 9.99,
+        "num-sold": 2389,
+        "pic-dir": "eye-liner.png",
+        "storeid": 3,
+        "sub-category": "makeup",
+        "main-category": "personal-care",
+        "type": "s"
+      },
+      {
+        "item-id": 8,
+        "item-name": "CeraVe Cream",
+        "unit-price": 29.99,
+        "unit": "unit",
+        "tot-price": 29.99,
+        "num-sold": 8376,
+        "pic-dir": "cerave.jpeg",
+        "storeid": 3,
+        "sub-category": "skin-care",
+        "main-category": "personal-care",
+        "type": "s"
       }
     ]
   },
@@ -139,6 +282,32 @@
         "storeid": 4,
         "sub-category": "fruit",
         "main-category": "produce",
+        "type": "s"
+      },
+      {
+        "item-id": 2,
+        "item-name": "Milk, 1 gal",
+        "unit-price": 3.99,
+        "unit": "gal",
+        "tot-price": 3.99,
+        "num-sold": 1234,
+        "pic-dir": "milk.png",
+        "storeid": 4,
+        "sub-category": "milk",
+        "main-category": "dairy-eggs",
+        "type": "s"
+      },
+      {
+        "item-id": 3,
+        "item-name": "2% Milk, 1 gal",
+        "unit-price": 2.99,
+        "unit": "gal",
+        "tot-price": 2.99,
+        "num-sold": 937,
+        "pic-dir": "milk-2.png",
+        "storeid": 4,
+        "sub-category": "milk",
+        "main-category": "dairy-eggs",
         "type": "s"
       }
     ]
@@ -201,6 +370,32 @@
         "sub-category": "chicken",
         "main-category": "meat-seafood",
         "type": "s"
+      },
+      {
+        "item-id": 5,
+        "item-name": "Fage Yogurt",
+        "unit-price": 6.99,
+        "unit": "unit",
+        "tot-price": 6.99,
+        "num-sold": 531,
+        "pic-dir": "fage-yogurt.jpg",
+        "storeid": 0,
+        "sub-category": "yogurt",
+        "main-category": "dairy-eggs",
+        "type": "s"
+      },
+      {
+        "item-id": 6,
+        "item-name": "Eggs, dozen",
+        "unit-price": 6.99,
+        "unit": "dozen",
+        "tot-price": 6.99,
+        "num-sold": 531,
+        "pic-dir": "dozen_eggs.jpeg",
+        "storeid": 0,
+        "sub-category": "eggs",
+        "main-category": "dairy-eggs",
+        "type": "s"
       }
     ]
   },
@@ -261,6 +456,58 @@
         "storeid": 1,
         "sub-category": "chicken",
         "main-category": "meat-seafood",
+        "type": "s"
+      },
+      {
+        "item-id": 9,
+        "item-name": "Water, 24 pack",
+        "unit-price": 3.99,
+        "unit": "unit",
+        "tot-price": 3.99,
+        "num-sold": 987,
+        "pic-dir": "water.jpg",
+        "storeid": 1,
+        "sub-category": "water",
+        "main-category": "beverage",
+        "type": "s"
+      },
+      {
+        "item-id": 10,
+        "item-name": "Orange Juice",
+        "unit-price": 4.99,
+        "unit": "unit",
+        "tot-price": 4.99,
+        "num-sold": 726,
+        "pic-dir": "orange-juice.png",
+        "storeid": 1,
+        "sub-category": "juice",
+        "main-category": "beverage",
+        "type": "s"
+      },
+      {
+        "item-id": 11,
+        "item-name": "Apple Juice",
+        "unit-price": 4.99,
+        "unit": "unit",
+        "tot-price": 4.99,
+        "num-sold": 726,
+        "pic-dir": "apple-juice.png",
+        "storeid": 1,
+        "sub-category": "juice",
+        "main-category": "beverage",
+        "type": "s"
+      },
+      {
+        "item-id": 12,
+        "item-name": "Bud Light",
+        "unit-price": 4.99,
+        "unit": "6pk",
+        "tot-price": 4.99,
+        "num-sold": 726,
+        "pic-dir": "beer.png",
+        "storeid": 1,
+        "sub-category": "alcohol",
+        "main-category": "beverage",
         "type": "s"
       }
     ]
