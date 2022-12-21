@@ -53,15 +53,18 @@ const deleteBtnStyle = {
   marginLeft:'20%',
   marginTop:'60%',
   backgroundColor: "hsla(205, 86%, 80%, 1)",
-  borderRadius: "100px",
-  // width: "15%",
+  borderRadius: "40px",
+  width: "41px",
   height:'40px',
-  width:'41px',
+  // width:'41px',
   textColor: "black",
   alignItems:'flex-start',
   borderCcolor: "hsla(205, 83%, 30%, 1)",
   textTransform:"none",
-  marginBottom: "100px"
+  marginBottom: "100px",
+  minWidth: 'unset'
+  
+
 };
 const storeBtnStyle = {
   backgroundColor: "hsla(205, 86%, 80%, 1)",
@@ -178,6 +181,7 @@ const OneItem = ({itemInfo}) => {
               <TotalPrice>${itemInfo["tot-price"]}</TotalPrice>
               
           </PriceDisplay>
+          {DropDown()}
           </div>
           {/* <Stack
               direction="row"
@@ -193,6 +197,28 @@ const OneItem = ({itemInfo}) => {
  
   )
 };
+const DropDown = () => {
+ const [value, setValue] = React.useState('fruit');
+ const handleChange = (event) => { 
+    setValue(event.target.value);
+  };
+ 
+  return (
+
+    <div style={{alignItems:'right',marginLeft:'50%'}}>
+      <label>
+        <select value={value} onChange={handleChange} style={{borderColor:'hsla(0, 0%, 65%, 1)',background:'hsla(0, 0%, 93%, 1)',borderRadius:'10px'}}>
+          <option value="Qty:1">Qty:1</option>
+          <option value="Qty:2">Qty:2</option>
+          <option value="Qty:3">Qty:3</option>
+          <option value="Qty:4">Qty:4</option>
+          <option value="Qty:5">Qty:5</option>
+        </select>
+      </label>
+    </div>
+  );
+ 
+ };
 const addDeleteButton=() => {
   return(
     
@@ -213,7 +239,7 @@ const addDelete =(store_num) => {
   
   
   return (
-    <div style={{display:'flex',flexDirection:'column'}}>
+    <div style={{display:'flex',flexDirection:'column',width:'10%'}}>
       {temp}
     </div>
   );
@@ -250,10 +276,12 @@ const store_map =(store_cart,store_num,cart_num,storeData,invData,total) =>{
 export const Compare = () => {
 
         let history = useHistory();
-       
+        const backredirect = () => {
+          history.push('/cart')
+        }
 
         const redirect = () => {
-          history.push('/')
+          history.push('/checkout')
         }
         // const cartData = JSON.parse(JSON.stringify(cart));
          const cartData = JSON.parse(JSON.stringify(cart));
@@ -285,6 +313,7 @@ export const Compare = () => {
           store_cart[j].push(invData[storeData[j]]["items"].filter(item => item["item-name"].includes(cartData[i]['item-name'])));
         }
           else 
+          
           store_cart[j].push([{'pic-dir':"none.png",'item-name':" ","tot-price":0}])
           
           }
@@ -300,7 +329,7 @@ export const Compare = () => {
       <HomeBase>
         <div style={{display:'flex',flexDirection:'row',marginTop:'-5%',marginLeft:'3%'}}>
         <div style={{width: "50%"}}>
-                        <Button style={hideBtnStyle} startIcon={<ChevronLeftIcon/>}>Cart</Button>
+                        <Button style={hideBtnStyle} startIcon={<ChevronLeftIcon/> } onClick={backredirect}>Cart</Button>
                         </div>
       <div style={{width: "110%"}}>
       Please select the store that you prefer
@@ -319,8 +348,8 @@ export const Compare = () => {
                         {/* <div style={{width: "50%",display:'flex',marginLeft:'25%',flexDirection:'row'}}>total:{totalCal(total)}</div> */}
                         <div style={{display:'flex',flexDirection:'row',marginLeft:'3%',marginTop:'3%'}}>
         <div style={{width: "50%",textColor:"white",marginLeft:'25%'}}>
-                        <Button style={backBtnStyle}>Back</Button>
-                        <Button style={checkoutBtnStyle}>Checkout</Button>
+                        <Button style={backBtnStyle} onClick={backredirect} >Back</Button>
+                        <Button style={checkoutBtnStyle} onClick={redirect}>Checkout</Button>
 
                         </div>
                         </div>
