@@ -63,6 +63,8 @@ You can also see the routes in `src/App.js`
 * Main Category Page: http://localhost:3000/maincat/<category-name> (see Main and sub-categories of the items in inventory.json section for exact values)
 * Sub Category Page: http://localhost:3000/subcat/<category-name> (see the same section as above for exact values)
 * Compare Price Page (static): http://localhost:3000/compare
+
+**The following two pages will NOT display correctly due to a migration error, separate zip files were submitted for each page for these two pages**
 * Detailed Item's Page (static and work-in-progress): http://localhost:3000/staticitem
 * Shopping Cart's Page (static and work-in-progress): http://localhost:3000/staticcart
 
@@ -76,7 +78,9 @@ You can also see the routes in `src/App.js`
 * `maincategory.js` -> Main Category Page
 * `subcategory.js` -> Sub Category Page
 * `compare.js` -> (semi-static) Price Comparison Page
-* `static-cart.js` -> (static) Shopping Cart Page
+
+**The following two pages will NOT display correctly due to a migration error, separate zip files were submitted for each page for these two pages**
+* `static-cart.js` -> (static) Shopping Cart Page 
 * `static-item.js` -> (static) Detailed Item Page
 
 
