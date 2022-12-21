@@ -277,7 +277,7 @@ export const Compare = () => {
 
         let history = useHistory();
         const backredirect = () => {
-          history.push('/cart')
+          history.push('/staticcart')
         }
 
         const redirect = () => {
