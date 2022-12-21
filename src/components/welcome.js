@@ -29,7 +29,7 @@ const CenterWindow = styled.div`
   justify-content: center;
   grid-area: main;
   font-size: 25px;
-  background-color: hsla(205, 69%, 90%, 0.77);
+  background-color: hsla(205, 69%, 90%, 0.95);
   // background: linear-gradient(0deg, #0D588E, #0D588E),
   // linear-gradient(0deg, rgba(214, 233, 248, 0.77), rgba(214, 233, 248, 0.77));
   height: 60%;
