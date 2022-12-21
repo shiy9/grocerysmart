@@ -561,7 +561,34 @@
     "location": "136 street",
     "distance": "1.9 miles",
     "delivery-fee": 0.99,
-    "items": []
+    "items": [
+      {
+        "item-id": 1,
+        "item-name": "Full chicken",
+        "unit-price": 6.99,
+        "unit": "unit",
+        "tot-price": 6.99,
+        "num-sold": 3836,
+        "pic-dir": "chicken-full.jpg",
+        "storeid": 7,
+        "sub-category": "chicken",
+        "main-category": "meat-seafood",
+        "type": "s"
+      },
+      {
+        "item-id": 2,
+        "item-name": "Boneless chicken breast",
+        "unit-price": 12.99,
+        "unit": "unit",
+        "tot-price": 12.99,
+        "num-sold": 85,
+        "pic-dir": "chicken-breast.jpeg",
+        "storeid": 7,
+        "sub-category": "chicken",
+        "main-category": "meat-seafood",
+        "type": "s"
+      }
+    ]
   },
   {
     "store-id": 8,

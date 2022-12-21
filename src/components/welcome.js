@@ -124,7 +124,7 @@ export const Welcome = () => {
 
               <div style={{ flex: "2" }}>
                 <img
-                  style={{ width: "100%", height: "60%" }}
+                  style={{ maxWidth: "100%", maxHeight: "60%" }}
                   src="https://chart.googleapis.com/chart?cht=qr&chl=Hello+World&chs=160x160&chld=L|0"
                   // width={30%}
                   // height={80}
@@ -137,7 +137,6 @@ export const Welcome = () => {
               style={{
                 textAlign: "center",
                 fontFamily: "inter",
-                marginTop: "-15%",
               }}
             >
               {/* <Button style={{}}>Start</Button> */}
