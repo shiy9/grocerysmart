@@ -123,7 +123,7 @@ export const Home = () => {
           textAlign: "center",
           alignItems: "center",
           justifyContent: "center",
-          position: "relative",
+          position: "fixed",
         }}
       >
         <div
