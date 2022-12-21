@@ -66,6 +66,21 @@ You can also see the routes in `src/App.js`
 * Detailed Item's Page (static and work-in-progress): http://localhost:3000/staticitem
 * Shopping Cart's Page (static and work-in-progress): http://localhost:3000/staticcart
 
+## File and Page Mappings
+(Again, all `.js` files can be found under `src/components`)
+* `header.js` -> Header bar component that is present on all pages
+* `welcome.js` -> Welcome Page
+* `storeselection.js` -> Store Selection Page
+* `home.js` -> Home Page
+* `searchresults.js` -> Search Result Page
+* `maincategory.js` -> Main Category Page
+* `subcategory.js` -> Sub Category Page
+* `compare.js` -> (semi-static) Price Comparison Page
+* `static-cart.js` -> (static) Shopping Cart Page
+* `static-item.js` -> (static) Detailed Item Page
+
+
+
 ---
 
 ## Note: the content below was the "old" development notes. It was kept here for the record and some information may be useful for a better understanding of our project!
